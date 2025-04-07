@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matteo Tournier | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin-top: 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #005fa3;
+      padding: 1rem;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .project, .skill {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0077cc;
+      color: white;
+    }
+    .links a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Matteo Tournier</h1>
+    <p>Étudiant en Master 1 Géomatique et Analyse Spatiale</p>
+    <img src="photo.jpg" alt="Photo de Matteo Tournier">
+  </header>
+  <nav>
+    <a href="#apropos">À propos</a>
+    <a href="#projets">Projets</a>
+    <a href="#competences">Compétences</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="apropos">
+    <h2>À propos</h2>
+    <p>Je suis actuellement en première année de Master en Géomatique et Analyse Spatiale à l'Institut de Grenoble. Passionné par la cartographie, les systèmes d'information géographique (SIG) et l'analyse spatiale, je développe des projets mêlant données géographiques et outils numériques.</p>
+  </section>
+
+  <section id="projets">
+    <h2>Projets</h2>
+    <div class="project">
+      <h3>Projet 1 - Analyse de l'occupation du sol</h3>
+      <p><strong>Outils :</strong> QGIS, Sentinel-2, Google Earth Engine</p>
+      <p>Étude de l'évolution de l'occupation du sol sur une zone périurbaine en utilisant des images satellites et des classifications supervisées.</p>
+    </div>
+    <div class="project">
+      <h3>Projet 2 - Webmapping interactif</h3>
+      <p><strong>Outils :</strong> Leaflet.js, HTML/CSS</p>
+      <p>Création d'une carte web interactive pour visualiser les points d'intérêt dans une commune.</p>
+    </div>
+  </section>
+
+  <section id="competences">
+    <h2>Compétences</h2>
+    <div class="skill">
+      <p><strong>SIG :</strong> QGIS, ArcGIS</p>
+      <p><strong>Langages :</strong> Python, R, SQL</p>
+      <p><strong>Webmapping :</strong> Leaflet, Mapbox</p>
+      <p><strong>Télédétection :</strong> Google Earth Engine, SNAP</p>
+      <p><strong>Base de données :</strong> PostGIS</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email : matteo.tournier@email.com</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/matteotournier" target="_blank">LinkedIn</a>
+      <a href="https://github.com/matteotournier" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Matteo Tournier</p>
+  </footer>
+</body>
+</html>
