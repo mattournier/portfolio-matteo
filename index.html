@@ -21,6 +21,17 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
     header {
       background-color: #0077cc;
       color: white;
@@ -75,6 +86,12 @@
       max-width: 1000px;
       margin: auto;
     }
+    section:nth-of-type(odd) {
+      background-color: #f0f4fa;
+    }
+    section:nth-of-type(even) {
+      background-color: #ffffff;
+    }
     h2 {
       text-align: center;
       margin-bottom: 2rem;
@@ -103,12 +120,24 @@
     .project img {
       width: 150px;
       border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     footer {
       text-align: center;
       padding: 2rem;
       background: #0077cc;
       color: white;
+      position: relative;
+    }
+    footer::before {
+      content: "🗺️";
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .links a {
       margin: 0 10px;
@@ -128,8 +157,37 @@
       text-decoration: none;
       border-radius: 6px;
     }
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #005fa3;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 18px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+      z-index: 1000;
+    }
+    .back-to-top:hover {
+      background-color: #004b82;
+    }
+    @media (max-width: 768px) {
+      .project a {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .project img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
+<body>
+  <a href="#top" class="back-to-top" title="Retour en haut">↑</a>
 <body>
   <header>
     <h1>Matteo Tournier</h1>
