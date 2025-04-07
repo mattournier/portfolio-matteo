@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet 1 - Incendie La Teste-de-Buch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #0077cc;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .image-block, .graph-block {
+      margin: 2rem 0;
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0077cc;
+      color: white;
+      margin-top: 3rem;
+    }
+    a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 1rem;
+      background-color: #005fa3;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    p.caption {
+      text-align: center;
+      font-style: italic;
+      margin-top: -0.5rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Projet 1 : Incendie de la forêt de la Teste-de-Buch</h1>
+    <p>Analyse des dégâts environnementaux à l'aide d'imagerie satellitaire</p>
+  </header>
+
+  <section>
+    <h2>Contexte et objectifs</h2>
+    <p>Ce projet vise à évaluer les dégâts causés par l'incendie qui a ravagé la forêt de la Teste-de-Buch durant l'été 2022. En combinant des données Sentinel-2 et des outils de télédétection comme Orfeo ToolBox, nous avons pu établir une cartographie précise des zones touchées. Une analyse diachronique a permis d'étudier l'évolution de l'état de la végétation avant et après l'incendie, en 2022 et en 2023.</p>
+  </section>
+
+  <section class="image-block">
+    <h2>Cartes de classification</h2>
+    <img src="images/classification_2022.jpg" alt="Classification 2022">
+    <p class="caption">Classification supervisée - Année 2022</p>
+    <img src="images/classification_2023.jpg" alt="Classification 2023">
+    <p class="caption">Classification supervisée - Année 2023</p>
+  </section>
+
+  <section class="image-block">
+    <h2>Cartes NDVI</h2>
+    <img src="images/ndvi_2022.jpg" alt="NDVI 2022">
+    <p class="caption">NDVI calculé sur l'année 2022</p>
+    <img src="images/ndvi_2023.jpg" alt="NDVI 2023">
+    <p class="caption">NDVI calculé sur l'année 2023</p>
+  </section>
+
+  <section class="image-block">
+    <h2>Analyse diachronique</h2>
+    <img src="images/avant_incendie.jpg" alt="Avant l'incendie">
+    <p class="caption">Image Sentinel-2 avant l'incendie</p>
+    <img src="images/apres_incendie.jpg" alt="Après l'incendie">
+    <p class="caption">Image Sentinel-2 après l'incendie</p>
+  </section>
+
+  <section class="graph-block">
+    <h2>Graphique récapitulatif</h2>
+    <img src="images/graphique_surfaces.jpg" alt="Graphique des surfaces classées">
+    <p class="caption">Évolution des surfaces classées par catégorie entre 2022 et 2023</p>
+  </section>
+
+  <section>
+    <h2>Interprétation</h2>
+    <p>Les cartes et l’analyse NDVI révèlent une baisse importante de la couverture végétale en 2022, suivie d'une légère régénération en 2023. La classification supervisée met en évidence les changements de type de couverture, tandis que les comparaisons visuelles avant/après illustrent clairement l’impact de l’incendie. L’analyse diachronique NDVI confirme la tendance générale de perte et reprise partielle de végétation. Le graphique final résume les évolutions de surface par classe (forêt dense, sol nu, végétation basse, etc.).</p>
+  </section>
+
+  <section style="text-align: center;">
+    <a class="button" href="index.html">⬅ Retour au portfolio</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Matteo Tournier</p>
+  </footer>
+</body>
+</html>
