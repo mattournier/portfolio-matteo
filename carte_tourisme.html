@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7f793754ec9f488e3cd50f73d3073f78 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7f793754ec9f488e3cd50f73d3073f78" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7f793754ec9f488e3cd50f73d3073f78 = L.map(
+                "map_7f793754ec9f488e3cd50f73d3073f78",
+                {
+                    center: [45.057494, 6.213595],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_178a57b278fabbe035a98243b7f1f84b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_178a57b278fabbe035a98243b7f1f84b.addTo(map_7f793754ec9f488e3cd50f73d3073f78);
+        
+    
+            var marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81 = L.markerClusterGroup(
+                {"refuge": "Refuges"}
+            );
+        
+    
+            var marker_c2d7cfba0bfa9f4b93d450c07a88e961 = L.marker(
+                [44.982321, 6.249209],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_39316516d456c97ed78f66f6369a6bda = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_568436796dfd3ce36d1dd01557466a6e = $(`<div id="html_568436796dfd3ce36d1dd01557466a6e" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de la selle 122804</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Terrasse, Equipements développement durable, Toilettes sèches, Eau chaude solaire, Gestion des déchets, Panneau photovoltaïque, Jeux de société</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_39316516d456c97ed78f66f6369a6bda.setContent(html_568436796dfd3ce36d1dd01557466a6e);
+            
+        
+
+        marker_c2d7cfba0bfa9f4b93d450c07a88e961.bindPopup(popup_39316516d456c97ed78f66f6369a6bda)
+        ;
+
+        
+    
+    
+            var marker_0763f62596ffb586751da490e9087897 = L.marker(
+                [45.14162, 6.10676],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_515685abb57f3bcd514cc1ed23139613 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_388d5488660e3f33a5a42d3a7358c3e1 = $(`<div id="html_388d5488660e3f33a5a42d3a7358c3e1" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de la fare 82462</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Jeux de société, Equipements développement durable, Gestion des déchets, Récupérateurs d'eau de pluie</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_515685abb57f3bcd514cc1ed23139613.setContent(html_388d5488660e3f33a5a42d3a7358c3e1);
+            
+        
+
+        marker_0763f62596ffb586751da490e9087897.bindPopup(popup_515685abb57f3bcd514cc1ed23139613)
+        ;
+
+        
+    
+    
+            var marker_36698210adfb5df60f12bc6b2fe7b27b = L.marker(
+                [45.249589, 6.078465],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_fdfb96c26707b09f23ca5a21d6c68e31 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_9f84ea14e89dcc0674d25bc8b52f1081 = $(`<div id="html_9f84ea14e89dcc0674d25bc8b52f1081" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge des 7 laux 211700</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Jeux de société, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_fdfb96c26707b09f23ca5a21d6c68e31.setContent(html_9f84ea14e89dcc0674d25bc8b52f1081);
+            
+        
+
+        marker_36698210adfb5df60f12bc6b2fe7b27b.bindPopup(popup_fdfb96c26707b09f23ca5a21d6c68e31)
+        ;
+
+        
+    
+    
+            var marker_f6b57e8a6679887c8103ff1eb710caae = L.marker(
+                [45.043683, 6.182985],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_670715ce27879a953446bb6f599b50af = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_50118fa8f613b5f9ea2274d3fd199ac7 = $(`<div id="html_50118fa8f613b5f9ea2274d3fd199ac7" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge les clots 6548</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Eau chaude solaire, Terrasse, Equipements développement durable, Gestion des déchets, Panneau photovoltaïque, Toilettes sèches</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_670715ce27879a953446bb6f599b50af.setContent(html_50118fa8f613b5f9ea2274d3fd199ac7);
+            
+        
+
+        marker_f6b57e8a6679887c8103ff1eb710caae.bindPopup(popup_670715ce27879a953446bb6f599b50af)
+        ;
+
+        
+    
+    
+            var marker_fcd1b4a6c6bb22758d0e990c94f0aee0 = L.marker(
+                [44.998413, 6.303371],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_e5c98b08cf62b7a8d36b0091b03ba795 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_e155652db793d7915ddf3c98040ca5d0 = $(`<div id="html_e155652db793d7915ddf3c98040ca5d0" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge du promontoire 122824</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Défibrillateur, Equipements développement durable, Panneau photovoltaïque, Toilettes sèches, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_e5c98b08cf62b7a8d36b0091b03ba795.setContent(html_e155652db793d7915ddf3c98040ca5d0);
+            
+        
+
+        marker_fcd1b4a6c6bb22758d0e990c94f0aee0.bindPopup(popup_e5c98b08cf62b7a8d36b0091b03ba795)
+        ;
+
+        
+    
+    
+            var marker_6c790a3fc6dcbbc0fc578ff2c2b8f2fc = L.marker(
+                [45.3289, 6.06],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_4b82ce418225bbf2d6d0ff87db7193e6 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_3f408abbe4ca52cf2cfd6dc842b91ace = $(`<div id="html_3f408abbe4ca52cf2cfd6dc842b91ace" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge du cret du poulet 132160</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Restaurant, Jeux de société, Terrasse ombragée, Terrasse, Défibrillateur, Equipements développement durable, Gestion des déchets, Récupérateurs d'eau de pluie, Table d'orientation, Bibliothèque</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_4b82ce418225bbf2d6d0ff87db7193e6.setContent(html_3f408abbe4ca52cf2cfd6dc842b91ace);
+            
+        
+
+        marker_6c790a3fc6dcbbc0fc578ff2c2b8f2fc.bindPopup(popup_4b82ce418225bbf2d6d0ff87db7193e6)
+        ;
+
+        
+    
+    
+            var marker_e032aec53e1ccf8a029ba55bcf40a307 = L.marker(
+                [45.223648, 6.020874],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_a9b75d076c9476c9565818960b5f9f3b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_32cb3400006578f077e9dc475db063e4 = $(`<div id="html_32cb3400006578f077e9dc475db063e4" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge le habert daiguebelle 5092376</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Jeux de société, Equipements développement durable, Panneau photovoltaïque, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_a9b75d076c9476c9565818960b5f9f3b.setContent(html_32cb3400006578f077e9dc475db063e4);
+            
+        
+
+        marker_e032aec53e1ccf8a029ba55bcf40a307.bindPopup(popup_a9b75d076c9476c9565818960b5f9f3b)
+        ;
+
+        
+    
+    
+            var marker_98fcf62483c2e5941b5ac760fddd042d = L.marker(
+                [44.898614, 6.206124],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_769a10d65327499a3761235271332f36 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ce915ecfb6064ce16982afc9f8dd9cc9 = $(`<div id="html_ce915ecfb6064ce16982afc9f8dd9cc9" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de la lavey 122428</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Bar, Terrasse, Bibliothèque, Parking, Restaurant, Jeux de société, Terrasse ombragée, Parking gratuit, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_769a10d65327499a3761235271332f36.setContent(html_ce915ecfb6064ce16982afc9f8dd9cc9);
+            
+        
+
+        marker_98fcf62483c2e5941b5ac760fddd042d.bindPopup(popup_769a10d65327499a3761235271332f36)
+        ;
+
+        
+    
+    
+            var marker_23fc7b197f24e29f8ebe4d06bcfbf3f4 = L.marker(
+                [45.192984, 5.967586],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_62f73baa087a9848a266f7fd8fc496c0 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_6d1f5a074acc8bc0fe5f155702a6be65 = $(`<div id="html_6d1f5a074acc8bc0fe5f155702a6be65" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge jean collet 171771</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Animaux acceptés, Petit déjeuner, Bivouac, Demi-pension, Restauration, Paniers Pique-nique</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_62f73baa087a9848a266f7fd8fc496c0.setContent(html_6d1f5a074acc8bc0fe5f155702a6be65);
+            
+        
+
+        marker_23fc7b197f24e29f8ebe4d06bcfbf3f4.bindPopup(popup_62f73baa087a9848a266f7fd8fc496c0)
+        ;
+
+        
+    
+    
+            var marker_c972dd838f1f09be322f5e8905555145 = L.marker(
+                [45.218181, 5.560069],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_1aba05fc57b4d7fd8119ef62bb2dc20c = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0264ab57ef646672093e51ec9a37db26 = $(`<div id="html_0264ab57ef646672093e51ec9a37db26" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de geve 203455</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Restaurant, Parking autocar, Appareil à raclette, Salle hors-sac, Parking, Appareil à fondue, Jeux de société, Terrasse, Bains à remous, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_1aba05fc57b4d7fd8119ef62bb2dc20c.setContent(html_0264ab57ef646672093e51ec9a37db26);
+            
+        
+
+        marker_c972dd838f1f09be322f5e8905555145.bindPopup(popup_1aba05fc57b4d7fd8119ef62bb2dc20c)
+        ;
+
+        
+    
+    
+            var marker_4d724633a47bf04c62c63aebb4219e2d = L.marker(
+                [44.952256, 6.098056],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_e795f33eacab3425d734d56baf316806 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_03f63636bb958e2d9790123275638f7e = $(`<div id="html_03f63636bb958e2d9790123275638f7e" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de la muzelle 90793</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Jeux de société, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_e795f33eacab3425d734d56baf316806.setContent(html_03f63636bb958e2d9790123275638f7e);
+            
+        
+
+        marker_4d724633a47bf04c62c63aebb4219e2d.bindPopup(popup_e795f33eacab3425d734d56baf316806)
+        ;
+
+        
+    
+    
+            var marker_b710365cd2235b92e477a704f0f5cfee = L.marker(
+                [45.189305, 5.5849],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_1a68560f4ae503eda8d9c46e1e50157c = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8a75654f93e8a61b8e979742acd3312e = $(`<div id="html_8a75654f93e8a61b8e979742acd3312e" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge des feneys 75377</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Jeux de société, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_1a68560f4ae503eda8d9c46e1e50157c.setContent(html_8a75654f93e8a61b8e979742acd3312e);
+            
+        
+
+        marker_b710365cd2235b92e477a704f0f5cfee.bindPopup(popup_1a68560f4ae503eda8d9c46e1e50157c)
+        ;
+
+        
+    
+    
+            var marker_2df1cb60b65c6dad2527520747aeb9c4 = L.marker(
+                [44.960607, 6.243968],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_81789a236efee424ac0284abad1cf2c7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_864b7c9d686b8033f259e831d006176d = $(`<div id="html_864b7c9d686b8033f259e831d006176d" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge du soreiller std 122975</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Jeux de société, Terrasse, Equipements développement durable, Panneau photovoltaïque, Toilettes sèches, Bibliothèque</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_81789a236efee424ac0284abad1cf2c7.setContent(html_864b7c9d686b8033f259e831d006176d);
+            
+        
+
+        marker_2df1cb60b65c6dad2527520747aeb9c4.bindPopup(popup_81789a236efee424ac0284abad1cf2c7)
+        ;
+
+        
+    
+    
+            var marker_1e907f244a05c83661e5066533e0a011 = L.marker(
+                [44.994472, 5.583887],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_cbae4ef752df7b83cb07d5ad28816df6 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_650010150a8dcca268d5d700a6a52e9c = $(`<div id="html_650010150a8dcca268d5d700a6a52e9c" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge la soldanelle 133624</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Restaurant, Bar, Terrasse</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_cbae4ef752df7b83cb07d5ad28816df6.setContent(html_650010150a8dcca268d5d700a6a52e9c);
+            
+        
+
+        marker_1e907f244a05c83661e5066533e0a011.bindPopup(popup_cbae4ef752df7b83cb07d5ad28816df6)
+        ;
+
+        
+    
+    
+            var marker_2bf243654a7047fdc84339acf8d870d5 = L.marker(
+                [45.264761, 6.11401],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_76b5ce8ad442711735563a8a7e4e53ff = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5c03c930a0d5a114d1b8b8ad1a53abd1 = $(`<div id="html_5c03c930a0d5a114d1b8b8ad1a53abd1" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>gite dalpage de combe madame 211842</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Terrasse, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_76b5ce8ad442711735563a8a7e4e53ff.setContent(html_5c03c930a0d5a114d1b8b8ad1a53abd1);
+            
+        
+
+        marker_2bf243654a7047fdc84339acf8d870d5.bindPopup(popup_76b5ce8ad442711735563a8a7e4e53ff)
+        ;
+
+        
+    
+    
+            var marker_89d2c6c59ae9c3241290caea256e2b12 = L.marker(
+                [44.904919, 6.332116],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_af5b7b64bbd355c44c81d071f9f788a3 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_876e4e97b89836a8df92c75e18f2d152 = $(`<div id="html_876e4e97b89836a8df92c75e18f2d152" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de temple ecrins 122811</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Terrasse, Défibrillateur, Equipements développement durable, Eau chaude solaire, Gestion des déchets, Panneau photovoltaïque, Centrale hydro électrique, Jeux de société</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_af5b7b64bbd355c44c81d071f9f788a3.setContent(html_876e4e97b89836a8df92c75e18f2d152);
+            
+        
+
+        marker_89d2c6c59ae9c3241290caea256e2b12.bindPopup(popup_af5b7b64bbd355c44c81d071f9f788a3)
+        ;
+
+        
+    
+    
+            var marker_23213908097a05d7352256030345c0df = L.marker(
+                [45.161189, 5.944312],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_3227518e649cfe21c0c92e4508ab73be = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8fab3c8d384b99a262c71b780f90c414 = $(`<div id="html_8fab3c8d384b99a262c71b780f90c414" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de la pra 175352</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Jeux de société, Terrasse, Défibrillateur</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_3227518e649cfe21c0c92e4508ab73be.setContent(html_8fab3c8d384b99a262c71b780f90c414);
+            
+        
+
+        marker_23213908097a05d7352256030345c0df.bindPopup(popup_3227518e649cfe21c0c92e4508ab73be)
+        ;
+
+        
+    
+    
+            var marker_e4a66ac991862152f5424f7734645fa2 = L.marker(
+                [45.057494, 6.213595],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_866580bb8541a5009c67fa2627cb704b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_3393eaea61379d2135f85ae221ff7b90 = $(`<div id="html_3393eaea61379d2135f85ae221ff7b90" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge du fay 6504</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Jeux de société, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_866580bb8541a5009c67fa2627cb704b.setContent(html_3393eaea61379d2135f85ae221ff7b90);
+            
+        
+
+        marker_e4a66ac991862152f5424f7734645fa2.bindPopup(popup_866580bb8541a5009c67fa2627cb704b)
+        ;
+
+        
+    
+    
+            var marker_c403a691b21f37b06d417e32bdcc8e07 = L.marker(
+                [45.055387, 6.212897],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_19e196da4e8f4a78f88771bac15c4718 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a7fc8695bca4faf29ab4bf4f2bdfdffa = $(`<div id="html_a7fc8695bca4faf29ab4bf4f2bdfdffa" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge les mouterres 4387</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Chèque, Espèces</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_19e196da4e8f4a78f88771bac15c4718.setContent(html_a7fc8695bca4faf29ab4bf4f2bdfdffa);
+            
+        
+
+        marker_c403a691b21f37b06d417e32bdcc8e07.bindPopup(popup_19e196da4e8f4a78f88771bac15c4718)
+        ;
+
+        
+    
+    
+            var marker_2f7ae5e8fc2e0c7380f9838e78711690 = L.marker(
+                [45.189132, 5.935316],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_13cf6f0da25f71810724059ba833e24b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8ce2d8cfcfa00e6accd5b750c9848f6f = $(`<div id="html_8ce2d8cfcfa00e6accd5b750c9848f6f" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>gite dalpage le pre du mollard 755875</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Terrasse, Equipements développement durable, Toilettes sèches, Eau chaude solaire, Gestion des déchets, Jeux de société, Terrasse couverte, Terrasse ombragée, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_13cf6f0da25f71810724059ba833e24b.setContent(html_8ce2d8cfcfa00e6accd5b750c9848f6f);
+            
+        
+
+        marker_2f7ae5e8fc2e0c7380f9838e78711690.bindPopup(popup_13cf6f0da25f71810724059ba833e24b)
+        ;
+
+        
+    
+    
+            var marker_947bbc20ec4d2dc2c0b27f4fbc10a098 = L.marker(
+                [45.063417, 5.954532],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_ca4af4764e227e4811e6a0261a301c61 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_fea7adc9d8d72176e6a2d9604bb7038d = $(`<div id="html_fea7adc9d8d72176e6a2d9604bb7038d" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge du taillefer 191713</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Terrasse, Bibliothèque, Table d'orientation, Equipements développement durable, Local matériel fermé, Toilettes sèches, Eau chaude solaire, Jeux de société</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_ca4af4764e227e4811e6a0261a301c61.setContent(html_fea7adc9d8d72176e6a2d9604bb7038d);
+            
+        
+
+        marker_947bbc20ec4d2dc2c0b27f4fbc10a098.bindPopup(popup_ca4af4764e227e4811e6a0261a301c61)
+        ;
+
+        
+    
+    
+            var marker_9178887263b389ec28e0fe9c1f73171e = L.marker(
+                [45.141642, 5.867477],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_dbbf86c4da63cdeb579a044fcdc36a73 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_83bdc45ab73d2317300bad7ee93dabf2 = $(`<div id="html_83bdc45ab73d2317300bad7ee93dabf2" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge du marais des seiglieres 6215149</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Parking gratuit, Parking</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_dbbf86c4da63cdeb579a044fcdc36a73.setContent(html_83bdc45ab73d2317300bad7ee93dabf2);
+            
+        
+
+        marker_9178887263b389ec28e0fe9c1f73171e.bindPopup(popup_dbbf86c4da63cdeb579a044fcdc36a73)
+        ;
+
+        
+    
+    
+            var marker_79716ba5cdea30a450e0f042a11cfb8f = L.marker(
+                [44.944843, 6.174408],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_dc7c02abf81d6d155ccc065f3e94b752 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c08f215e0a2d900a0b4da615acff6c86 = $(`<div id="html_c08f215e0a2d900a0b4da615acff6c86" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de lalpe du pin 122425</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Jeux de société, Terrasse, Equipements développement durable, Gestion des déchets, Panneau photovoltaïque, Bibliothèque</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_dc7c02abf81d6d155ccc065f3e94b752.setContent(html_c08f215e0a2d900a0b4da615acff6c86);
+            
+        
+
+        marker_79716ba5cdea30a450e0f042a11cfb8f.bindPopup(popup_dc7c02abf81d6d155ccc065f3e94b752)
+        ;
+
+        
+    
+    
+            var marker_da6da2c8ea74619b812cf49b83676326 = L.marker(
+                [45.31417, 6.13539],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_8e5b0e8aaff6ea5931e6e48620f5c8f3 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_27942de9a93206e9b4750d3c82e34e06 = $(`<div id="html_27942de9a93206e9b4750d3c82e34e06" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de loule 211644</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Salle hors-sac, Jeux de société, Terrasse</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_8e5b0e8aaff6ea5931e6e48620f5c8f3.setContent(html_27942de9a93206e9b4750d3c82e34e06);
+            
+        
+
+        marker_da6da2c8ea74619b812cf49b83676326.bindPopup(popup_8e5b0e8aaff6ea5931e6e48620f5c8f3)
+        ;
+
+        
+    
+    
+            var marker_be85f940c3fcbcb479c5c51a2547ffbd = L.marker(
+                [45.168847, 5.590324],
+                {}
+            ).addTo(marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81);
+        
+    
+        var popup_be4a6f5a1c864e26f7de62e992bd9864 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f420076563418064aadca48abb5965ba = $(`<div id="html_f420076563418064aadca48abb5965ba" style="width: 100.0%; height: 100.0%;">     <h4><b>Nom et Identifiant : <b><br></h4>     <h5>refuge de la moliere 613472</h5>     <h4><b>Equipements disponibles : <b><br></h4>     <h5>Jeux de société, Equipements développement durable, Panneau photovoltaïque, Espace de séchage</h5>     <h4><b>Prix : <b><br></h4>     <h5>Non spécifié</h5>     </div>`)[0];
+                popup_be4a6f5a1c864e26f7de62e992bd9864.setContent(html_f420076563418064aadca48abb5965ba);
+            
+        
+
+        marker_be85f940c3fcbcb479c5c51a2547ffbd.bindPopup(popup_be4a6f5a1c864e26f7de62e992bd9864)
+        ;
+
+        
+    
+    
+            marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81.addTo(map_7f793754ec9f488e3cd50f73d3073f78);
+        
+    
+            tile_layer_178a57b278fabbe035a98243b7f1f84b.addTo(map_7f793754ec9f488e3cd50f73d3073f78);
+        
+    
+            marker_cluster_378b27f27cf1d51ecdd4f59dc75e1e81.addTo(map_7f793754ec9f488e3cd50f73d3073f78);
+        
+</script>
+</html>
