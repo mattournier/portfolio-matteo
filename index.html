@@ -4,18 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matteo Tournier | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: #f4f4f4;
       color: #333;
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     header {
       background-color: #0077cc;
       color: white;
       padding: 2rem;
       text-align: center;
+      position: relative;
     }
     header img {
       width: 120px;
@@ -24,30 +35,62 @@
       object-fit: cover;
       border: 3px solid white;
       margin-top: 1rem;
+      transition: transform 0.3s ease;
+    }
+    header img:hover {
+      transform: scale(1.05);
     }
     nav {
       display: flex;
       justify-content: center;
       background-color: #005fa3;
       padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     nav a {
       color: white;
       margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+    nav a:hover::after {
+      width: 100%;
     }
     section {
-      padding: 2rem;
-      max-width: 900px;
+      padding: 3rem 2rem;
+      max-width: 1000px;
       margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 800;
     }
     .project, .skill {
       background: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project:hover, .skill:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
     }
     footer {
       text-align: center;
@@ -59,6 +102,10 @@
       margin: 0 10px;
       color: white;
       text-decoration: none;
+      transition: color 0.3s;
+    }
+    .links a:hover {
+      color: #ffd700;
     }
   </style>
 </head>
