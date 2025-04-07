@@ -27,7 +27,7 @@
     h1, h2 {
       text-align: center;
     }
-    .image-block, .graph-block {
+    .image-block, .graph-block, .interpretation-block {
       margin: 2rem 0;
       background: white;
       padding: 1rem;
@@ -35,9 +35,10 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     img {
-      max-width: 100%;
+      max-width: 70%;
+      display: block;
+      margin: 1rem auto;
       border-radius: 10px;
-      margin-bottom: 1rem;
     }
     footer {
       text-align: center;
@@ -82,12 +83,22 @@
     <p class="caption">Classification supervisée (méthode KNN) - Année 2023</p>
   </section>
 
+  <section class="interpretation-block">
+    <h2>Analyse des classifications</h2>
+    <p>La classification KNN permet d'identifier les zones brûlées à partir de la modification des signatures spectrales. On observe une nette diminution des surfaces boisées entre 2022 et 2023, au profit des sols nus ou en régénération.</p>
+  </section>
+
   <section class="image-block">
     <h2>Cartes NDVI</h2>
-    <img src="images/ndvi_2022.jpg" alt="NBR 2022">
-    <p class="caption">NBR calculé sur l'année 2022</p>
-    <img src="images/ndvi_2023.jpg" alt="NBR 2023">
-    <p class="caption">NBR calculé sur l'année 2023</p>
+    <img src="images/ndvi_2022.jpg" alt="NDVI 2022">
+    <p class="caption">NDVI calculé sur l'année 2022</p>
+    <img src="images/ndvi_2023.jpg" alt="NDVI 2023">
+    <p class="caption">NDVI calculé sur l'année 2023</p>
+  </section>
+
+  <section class="interpretation-block">
+    <h2>Analyse NDVI</h2>
+    <p>L'indice NDVI montre une chute brutale de la végétation suite à l'incendie. En 2023, on note une reprise partielle sur certaines zones, signe d'une régénération progressive, bien que hétérogène.</p>
   </section>
 
   <section class="image-block">
@@ -98,15 +109,20 @@
     <p class="caption">Image Sentinel-2 après l'incendie</p>
   </section>
 
+  <section class="interpretation-block">
+    <h2>Analyse avant/après incendie</h2>
+    <p>Les comparaisons visuelles confirment les résultats quantitatifs : perte de couvert végétal dense, apparition de sols nus, zones noircies caractéristiques de la combustion. Ces changements sont bien détectés par les méthodes d'observation spatiale.</p>
+  </section>
+
   <section class="graph-block">
     <h2>Graphique récapitulatif</h2>
     <img src="images/graphique_surfaces.jpg" alt="Graphique des surfaces classées">
     <p class="caption">Évolution des surfaces classées par catégorie entre 2022 et 2023</p>
   </section>
 
-  <section>
-    <h2>Interprétation</h2>
-    <p>Les cartes et l’analyse NDVI révèlent une baisse importante de la couverture végétale en 2022, suivie d'une légère régénération en 2023. La classification supervisée met en évidence les changements de type de couverture, tandis que les comparaisons visuelles avant/après illustrent clairement l’impact de l’incendie. L’analyse diachronique NDVI confirme la tendance générale de perte et reprise partielle de végétation. Le graphique final résume les évolutions de surface par classe (forêt dense, sol nu, végétation basse, etc.).</p>
+  <section class="interpretation-block">
+    <h2>Conclusion générale</h2>
+    <p>Les différentes analyses croisées (classifications, NDVI, diachronie visuelle) permettent de dresser un bilan clair des impacts de l’incendie. Le traitement automatique des images satellites offre des outils puissants pour le suivi environnemental post-catastrophe.</p>
   </section>
 
   <section style="text-align: center;">
