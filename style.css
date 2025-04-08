@@ -1,2 +1,158 @@
 
 /* --- Tout ton CSS original ici --- */
+/* style.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 2rem 0; /* Ajout de padding vertical pour l'espacement général */
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Pour que les sections s'affichent verticalement */
+    align-items: center; /* Centre horizontalement les sections */
+    text-align: center; /* Centre le texte par défaut */
+    min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la fenêtre */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur/hauteur */
+}
+
+body.dark {
+    background-color: #1e1e1e;
+    color: #eee;
+}
+
+/* Styles pour l'en-tête */
+#header {
+    background-color: #0077cc;
+    color: white;
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#header h1 {
+    margin-bottom: 0.5rem;
+}
+
+#header p {
+    margin-top: 0;
+}
+
+/* Styles pour les sections de contenu (about, projects, skills, contact) */
+#about,
+#projects,
+#skills,
+#contact {
+    max-width: 900px;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: white; /* Ajoute un fond blanc pour les sections */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Aligne le texte à gauche dans les sections */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur */
+    width: 90%; /* Prend une largeur de 90% sur les écrans plus petits */
+}
+
+#about h2,
+#projects h2,
+#skills h2,
+#contact h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #0077cc; /* Couleur d'accent pour les titres */
+}
+
+#projects .project-item { /* Si tu as une classe pour chaque projet dans projects.html */
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#contact p {
+    margin-bottom: 1rem;
+}
+
+#contact .contact-links a {
+    display: inline-block;
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    color: #0077cc;
+    text-decoration: none;
+}
+
+/* Styles pour le pied de page */
+#footer {
+    background-color: #0077cc;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 3rem; /* Ajoute un espace au-dessus du footer */
+}
+
+/* Styles pour le bouton de mode sombre */
+.dark-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1.25rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.dark-toggle:hover {
+    background-color: #555;
+}
+
+/* Styles pour le bouton retour en haut */
+.back-to-top {
+    display: none; /* Initialement caché */
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #0077cc;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.back-to-top:hover {
+    background-color: #005fa3;
+}
+
+/* Styles pour le fade-in (si tu souhaites l'appliquer aux sections) */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Responsive design (pour les écrans plus petits) */
+@media (max-width: 768px) {
+    #about,
+    #projects,
+    #skills,
+    #contact {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .contact-links a {
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+    }
+}
