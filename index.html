@@ -19,6 +19,7 @@
             background-color: #f9f9f9;
             color: #333;
             animation: fadeIn 1.5s ease;
+            line-height: 1.6; /* Amélioration de la lisibilité du texte */
         }
 
         body.dark {
@@ -53,72 +54,84 @@
             transform: translateY(0);
         }
 
-        /* Styles améliorés pour l'en-tête */
+        /* Styles épurés et modernes pour l'en-tête */
         header {
-            background: linear-gradient(135deg, #0077cc, #005fa3);
-            color: white;
-            padding: 3rem 2rem;
+            background-color: #f9f9f9; /* Fond clair pour plus d'épure */
+            color: #333;
+            padding: 4rem 2rem; /* Augmentation du padding pour l'espace */
             text-align: center;
             position: relative;
-            overflow: hidden;
+            display: flex; /* Pour aligner les éléments verticalement */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centre le contenu verticalement */
+            min-height: 300px; /* Hauteur minimale pour un aspect "hero" */
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem; /* Typographie plus grande et audacieuse */
+            font-weight: 800;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: -1px; /* Léger rapprochement des lettres pour un aspect moderne */
+            color: #0077cc; /* Couleur d'accentuation */
         }
 
         header p {
             font-size: 1.2rem;
-            opacity: 0.8;
+            color: #777; /* Couleur de texte secondaire */
+            margin-bottom: 1.5rem;
         }
 
         header img {
-            width: 150px;
-            height: 150px;
+            width: 120px; /* Taille de l'image conservée pour l'instant */
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid white;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 3px solid #ddd; /* Bordure plus claire */
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
             transition: transform 0.3s ease-in-out;
         }
 
         header img:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
-        /* Styles améliorés pour la navigation */
+        /* Styles épurés pour la navigation */
         nav {
             display: flex;
             justify-content: center;
-            background-color: rgba(0, 95, 163, 0.9); /* Semi-transparent */
-            padding: 1rem;
+            background-color: #fff; /* Fond blanc */
+            padding: 1.5rem 2rem; /* Augmentation du padding */
             position: sticky;
             top: 0;
             z-index: 10;
-            backdrop-filter: blur(10px); /* Effet de flou derrière la transparence */
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Ombre légère */
         }
 
         nav a {
-            color: white;
+            color: #333;
             margin: 0 1.5rem;
             text-decoration: none;
             font-weight: 600;
             position: relative;
             letter-spacing: 0.5px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #0077cc; /* Couleur d'accentuation au survol */
         }
 
         nav a::after {
             content: '';
             display: block;
             width: 0;
-            height: 3px;
-            background: white;
+            height: 2px;
+            background-color: #0077cc; /* Couleur d'accentuation du soulignement */
             transition: width 0.3s ease-in-out;
             position: absolute;
-            bottom: -6px;
+            bottom: -4px;
             left: 0;
         }
 
@@ -127,29 +140,31 @@
         }
 
         section {
-            padding: 3rem 2rem;
+            padding: 4rem 2rem; /* Augmentation du padding pour l'espace */
             max-width: 1000px;
             margin: auto;
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem; /* Plus d'espace sous le titre de section */
             font-weight: 800;
+            font-size: 2.2rem;
+            color: #333;
         }
 
         #projets {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 3rem; /* Plus d'espace entre les projets */
         }
 
         .project {
             border-left: 6px solid #0077cc;
             background: #ffffff;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 2rem; /* Augmentation du padding */
+            border-radius: 12px; /* Bords légèrement moins arrondis pour un aspect plus moderne */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Ombre plus légère */
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             transform: perspective(1px) translateZ(0);
             position: relative;
@@ -170,6 +185,7 @@
             transform-origin: 0 50%;
             transition: transform 0.3s ease-out;
             pointer-events: none;
+            background-color: #f0f0f0; /* Couleur de survol plus claire */
         }
 
         .project:hover::before {
@@ -177,8 +193,8 @@
         }
 
         .project:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Ombre légèrement plus marquée au survol */
         }
 
         .project a {
@@ -191,28 +207,29 @@
         }
 
         .project img {
-            width: 150px;
+            width: 120px; /* Taille de l'image conservée pour l'instant */
             height: auto;
-            border-radius: 12px;
+            border-radius: 8px; /* Bords moins arrondis */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-right: 1.5rem;
+            margin-right: 2rem; /* Plus d'espace à droite de l'image */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Ombre légère */
         }
 
         .project img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légèrement plus marquée au survol */
         }
 
         .skill {
             background: white;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem; /* Augmentation du padding */
+            margin-bottom: 1.5rem; /* Plus d'espace entre les compétences */
+            border-radius: 8px; /* Bords moins arrondis */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Ombre légère */
         }
 
         .skill p {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem; /* Plus d'espace entre les compétences */
         }
 
         .skill p i {
@@ -222,66 +239,81 @@
 
         .button {
             display: inline-block;
-            padding: 10px 20px;
-            margin-top: 1rem;
+            padding: 12px 24px; /* Augmentation du padding du bouton */
+            margin-top: 1.5rem; /* Plus d'espace au-dessus du bouton */
             background-color: #0077cc;
             color: white;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px; /* Bords moins arrondis */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #005fa3;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background: #0077cc;
-            color: white;
+            padding: 3rem 2rem; /* Augmentation du padding */
+            background: #f0f0f0; /* Fond plus clair */
+            color: #777;
+            font-size: 0.9rem;
         }
 
         footer::before {
             content: "🗺️";
             font-size: 2rem;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: #bbb; /* Couleur de l'icône plus claire */
         }
 
         .back-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #005fa3;
+            bottom: 30px; /* Plus d'espace depuis le bas */
+            right: 30px; /* Plus d'espace depuis la droite */
+            background-color: #0077cc;
             color: white;
-            padding: 10px 15px;
-            border-radius: 50%;
-            font-size: 18px;
+            padding: 12px 18px; /* Augmentation du padding */
+            border-radius: 8px; /* Bords moins arrondis */
+            font-size: 1rem;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s;
-            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
         }
 
         .back-to-top:hover {
-            background-color: #004b82;
+            background-color: #005fa3;
         }
 
-        /* Style amélioré pour le bouton de mode sombre */
         .dark-toggle {
             position: absolute;
             top: 1rem;
             right: 1rem;
             background: none;
-            color: white;
-            border: 2px solid white;
+            color: #333;
+            border: 2px solid #333;
             padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 16px;
+            border-radius: 8px; /* Bords moins arrondis */
+            font-size: 1rem;
             cursor: pointer;
             z-index: 1001;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .dark-toggle:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        body.dark .dark-toggle {
+            color: white;
+            border-color: white;
+        }
+
+        body.dark .dark-toggle:hover {
             background-color: white;
-            color: #333;
+            color: #1e1e1e;
         }
     </style>
 </head>
@@ -302,18 +334,18 @@
     </script>
     <header>
         <h1>Matteo Tournier</h1>
-        <p>Étudiant en première année de Master Géomatique et Analyse Spatiale</p>
+        <p>Étudiant en Géomatique et Analyse Spatiale</p>
         <img src="photo.jpg" alt="Photo de Matteo Tournier">
     </header>
     <nav>
-        <a href="#apropos">À propos de moi</a>
-        <a href="#projets">Projets académiques</a>
-        <a href="#competences">Compétences techniques</a>
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <section id="apropos">
-        <h2>À propos de moi</h2>
+        <h2>À propos</h2>
         <p>Je suis actuellement en première année de Master en Géomatique et Analyse Spatiale à l'Institut d'Urbanisme et de Géographie Alpine (IUGA) de Grenoble. Passionné par la cartographie, les systèmes d'information géographique (SIG) et la programmation, je développe des projets mêlant données géographiques et outils numériques. Vous pourrez trouver ici quelques-uns de mes projets académiques.</p>
         <p><a href="cv_MatteoTournier.pdf" class="button" target="_blank">📄 Télécharger mon CV</a></p>
     </section>
@@ -324,10 +356,9 @@
             <a href="projet1.html">
                 <img src="images/thumb_projet1.jpg" alt="Aperçu projet 1">
                 <div>
-                    <h3>Projet 1 - Analyse des dégâts occasionnés par l’incendie de la forêt de la Teste-de-Buch (été 2022)</h3>
+                    <h3>Analyse des dégâts occasionnés par l’incendie de la forêt de la Teste-de-Buch (été 2022)</h3>
                     <p><strong>Outils :</strong> QGIS, Orfeo Tool Box</p>
                     <p><strong>Données :</strong> GEODES, Sentinel 2B</p>
-                    <p>Évaluation des destructions occasionnées par l’incendie via imagerie satellitaire multispectrale et classification supervisée OTB.</p>
                     <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
                 </div>
             </a>
@@ -336,10 +367,9 @@
             <a href="projet2.html">
                 <img src="images/thumb_projet2.jpg" alt="Aperçu projet 2">
                 <div>
-                    <h3>Projet 2 - Analyse du risque d'inondation : étude de cas des communes d'Isère</h3>
+                    <h3>Analyse du risque d'inondation : étude de cas des communes d'Isère</h3>
                     <p><strong>Outils :</strong> QGIS, ArcGIS Pro, Rstudio</p>
                     <p><strong>Données :</strong> DREAL, BD TOPO, OpenStreetMap</p>
-                    <p>Création d'un indicateur pour classer les cours d'eau en fonction du potentiel de menace face aux communes d'Isère.</p>
                     <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
                 </div>
             </a>
@@ -348,10 +378,9 @@
             <a href="projet3.html">
                 <img src="images/thumb_projet3.jpg" alt="Aperçu projet 3">
                 <div>
-                    <h3>Projet 3 - Cartographie de données scrappées de l'office de tourisme Alpes Isère</h3>
+                    <h3>Cartographie de données scrappées de l'office de tourisme Alpes Isère</h3>
                     <p><strong>Outils :</strong> Python, Jupyter Notebook, Folium</p>
                     <p><strong>Données :</strong> Données des refuges scrappées</p>
-                    <p>Scraping des données touristiques, nettoyage, export en CSV, puis cartographie interactive via Folium.</p>
                     <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
                 </div>
             </a>
