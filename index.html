@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matteo Tournier | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -11,12 +12,21 @@
       scroll-behavior: smooth;
     }
     body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  animation: fadeIn 1.5s ease;
-}
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      animation: fadeIn 1.5s ease;
+    }
+    body.dark {
+      background-color: #1e1e1e;
+      color: #eee;
+    }
+    body.dark .project,
+    body.dark .skill {
+      background-color: #2a2a2a;
+      color: #eee;
+    }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -24,13 +34,11 @@
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInUp 1s forwards;
+      transition: all 0.6s ease-out;
     }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     header {
       background-color: #0077cc;
@@ -86,36 +94,30 @@
       max-width: 1000px;
       margin: auto;
     }
-    section:nth-of-type(odd) {
-  background-color: transparent;
-}
-    section:nth-of-type(even) {
-  background-color: transparent;
-}
     h2 {
       text-align: center;
       margin-bottom: 2rem;
       font-weight: 800;
     }
+    #projets {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 900px) {
+      #projets {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
     .project {
-  background: transparent;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-    .skill {
+      border-left: 6px solid #0077cc;
       background: white;
-      padding: 1rem;
-      margin-bottom: 2rem;
+      padding: 1.5rem;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
     }
-    .project:hover, .skill:hover {
+    .project:hover {
       transform: translateY(-5px);
       box-shadow: 0 12px 25px rgba(0,0,0,0.1);
     }
@@ -123,39 +125,23 @@
       color: inherit;
       text-decoration: none;
       display: flex;
-      align-items: center;
-      gap: 20px;
+      flex-direction: column;
+      gap: 12px;
     }
     .project img {
-      width: 150px;
+      width: 100%;
       border-radius: 12px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .project img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .skill {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0077cc;
-      color: white;
-      position: relative;
-    }
-    footer::before {
-      content: "🗺️";
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .links a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .links a:hover {
-      color: #ffd700;
+    .skill p::before {
+      content: "✔️ ";
     }
     .button {
       display: inline-block;
@@ -165,6 +151,18 @@
       color: white;
       text-decoration: none;
       border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0077cc;
+      color: white;
+    }
+    footer::before {
+      content: "🗺️";
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .back-to-top {
       position: fixed;
@@ -183,18 +181,33 @@
     .back-to-top:hover {
       background-color: #004b82;
     }
-    @media (max-width: 768px) {
-      .project a {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .project img {
-        width: 100%;
-        max-width: 100%;
-      }
+    .dark-toggle {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      z-index: 1001;
+      background: #0077cc;
+      color: white;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
     }
   </style>
 </head>
+<body>
+  <a href="#top" class="back-to-top" title="Retour en haut">↑</a>
+  <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌓</button>
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
 <body>
   <header>
     <h1>Matteo Tournier</h1>
