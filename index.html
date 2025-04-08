@@ -112,7 +112,30 @@
   padding: 1.5rem;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 119, 204, 0.05);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 0;
+}
+.project:hover::before {
+  opacity: 1;
+}
+.project:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
 }
     .project:hover {
       transform: translateY(-5px);
@@ -216,7 +239,6 @@
     }, { threshold: 0.1 });
     fadeElements.forEach(el => observer.observe(el));
   </script>
-
 <body>
   <header>
     <h1>Matteo Tournier</h1>
