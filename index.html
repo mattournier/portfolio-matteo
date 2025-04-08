@@ -189,13 +189,18 @@
         .skill {
             background: white;
             padding: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem; /* Réduit légèrement la marge pour un meilleur espacement avec les icônes */
             border-radius: 16px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .skill p::before {
-            content: "✔️ ";
+        .skill p {
+            margin-bottom: 0.3rem; /* Réduit la marge entre les compétences */
+        }
+
+        .skill p i {
+            margin-right: 0.7rem;
+            color: #0077cc;
         }
 
         .button {
@@ -338,12 +343,12 @@
     <section id="competences">
         <h2>Compétences</h2>
         <div class="skill">
-            <p><strong>SIG :</strong> QGIS, ArcGIS Pro</p>
-            <p><strong>Langages :</strong> Python, R, Rstudio, SQL</p>
-            <p><strong>Workflow :</strong> FME, Data Interoperability</p>
-            <p><strong>Télédétection :</strong> Orfeo Tool Box, Photoscan</p>
-            <p><strong>Base de données :</strong> PostGIS</p>
-            <p><strong>Éditeur de SIG :</strong> GEO (Business Geographic)</p>
+            <p><i class="fas fa-map-marked-alt"></i> <strong>SIG :</strong> QGIS, ArcGIS Pro</p>
+            <p><i class="fas fa-code"></i> <strong>Langages :</strong> Python, R, Rstudio, SQL</p>
+            <p><i class="fas fa-cogs"></i> <strong>Workflow :</strong> FME, Data Interoperability</p>
+            <p><i class="fas fa-satellite-dish"></i> <strong>Télédétection :</strong> Orfeo Tool Box, Photoscan</p>
+            <p><i class="fas fa-database"></i> <strong>Base de données :</strong> PostGIS</p>
+            <p><i class="fas fa-desktop"></i> <strong>Éditeur de SIG :</strong> GEO (Business Geographic)</p>
         </div>
     </section>
 
