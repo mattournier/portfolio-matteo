@@ -1,136 +1,166 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet 1 - Incendie La Teste-de-Buch</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #0077cc;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .image-block, .graph-block, .interpretation-block {
-      margin: 2rem 0;
-      background: white;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    img {
-      max-width: 70%;
-      display: block;
-      margin: 1rem auto;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0077cc;
-      color: white;
-      margin-top: 3rem;
-    }
-    a.button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 1rem;
-      background-color: #005fa3;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-    p.caption {
-      text-align: center;
-      font-style: italic;
-      margin-top: -0.5rem;
-      margin-bottom: 1.5rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1 - Incendie La Teste-de-Buch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        section {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .image-block,
+        .graph-block,
+        .interpretation-block {
+            margin: 2rem 0;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style pour afficher les images côte à côte */
+        .image-row {
+            display: flex;
+            justify-content: center; /* Centre les images horizontalement */
+            gap: 1rem; /* Espacement entre les images */
+            margin-bottom: 1.5rem; /* Espacement sous le groupe d'images */
+        }
+
+        .image-row img {
+            max-width: 45%; /* Rend les images plus petites (ajuste selon besoin) */
+            display: block;
+            margin: 0 auto; /* Centre les images individuellement dans leur conteneur */
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 70%; /* Style par défaut pour les autres images */
+            display: block;
+            margin: 1rem auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0077cc;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            background-color: #005fa3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        p.caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>Projet 1 : Incendie de la forêt de la Teste-de-Buch</h1>
-    <p>Analyse des dégâts environnementaux à l'aide d'imagerie satellitaire</p>
-  </header>
+    <header>
+        <h1>Projet 1 : Incendie de la forêt de la Teste-de-Buch</h1>
+        <p>Analyse des dégâts environnementaux à l'aide d'imagerie satellitaire</p>
+    </header>
 
-  <section>
-    <h2>Contexte et objectifs</h2>
-    <p>Ce projet vise à évaluer les dégâts causés par l'incendie qui a ravagé la forêt de la Teste-de-Buch durant l'été 2022. En combinant des données Sentinel-2 et des outils de télédétection comme Orfeo ToolBox, nous avons pu établir une cartographie précise des zones touchées. Une analyse diachronique a permis d'étudier l'évolution de l'état de la végétation avant et après l'incendie, en 2022 et en 2023.</p>
-  </section>
+    <section>
+        <h2>Contexte et objectifs</h2>
+        <p>Ce projet vise à évaluer les dégâts causés par l'incendie qui a ravagé la forêt de la Teste-de-Buch durant l'été 2022. En combinant des données Sentinel-2 et des outils de télédétection comme Orfeo ToolBox, nous avons pu établir une cartographie précise des zones touchées. Une analyse diachronique a permis d'étudier l'évolution de l'état de la végétation avant et après l'incendie, en 2022 et en 2023.</p>
+    </section>
 
-  <section class="image-block">
-    <h2>Cartes de classification</h2>
-    <img src="images/classification_2022.jpg" alt="Classification 2022">
-    <p class="caption">Classification supervisée (méthode KNN) - Année 2022</p>
-    <img src="images/classification_2023.jpg" alt="Classification 2023">
-    <p class="caption">Classification supervisée (méthode KNN) - Année 2023</p>
-  </section>
+    <section class="image-block">
+        <h2>Cartes de classification</h2>
+        <div class="image-row">
+            <img src="images/classification_2022.jpg" alt="Classification 2022">
+            <img src="images/classification_2023.jpg" alt="Classification 2023">
+        </div>
+        <p class="caption">Comparaison des classifications supervisées (méthode KNN) - Années 2022 et 2023</p>
+    </section>
 
-  <section class="interpretation-block">
-    <h2>Analyse des classifications</h2>
-    <p>La classification KNN permet d'identifier les zones brûlées à partir de la modification des signatures spectrales. On observe une nette diminution des surfaces boisées entre 2022 et 2023, au profit des sols nus ou en régénération.</p>
-  </section>
+    <section class="interpretation-block">
+        <h2>Analyse des classifications</h2>
+        <p>La classification KNN permet d'identifier les zones brûlées à partir de la modification des signatures spectrales. On observe une nette diminution des surfaces boisées entre 2022 et 2023, au profit des sols nus ou en régénération.</p>
+    </section>
 
-  <section class="image-block">
-    <h2>Cartes NDVI</h2>
-    <img src="images/ndvi_2022.jpg" alt="NDVI 2022">
-    <p class="caption">NDVI calculé sur l'année 2022</p>
-    <img src="images/ndvi_2023.jpg" alt="NDVI 2023">
-    <p class="caption">NDVI calculé sur l'année 2023</p>
-  </section>
+    <section class="image-block">
+        <h2>Cartes NDVI</h2>
+        <div class="image-row">
+            <img src="images/ndvi_2022.jpg" alt="NDVI 2022">
+            <img src="images/ndvi_2023.jpg" alt="NDVI 2023">
+        </div>
+        <p class="caption">Comparaison des indices NDVI calculés sur les années 2022 et 2023</p>
+    </section>
 
-  <section class="interpretation-block">
-    <h2>Analyse NDVI</h2>
-    <p>L'indice NDVI montre une chute brutale de la végétation suite à l'incendie. En 2023, on note une reprise partielle sur certaines zones, signe d'une régénération progressive, bien que hétérogène.</p>
-  </section>
+    <section class="interpretation-block">
+        <h2>Analyse NDVI</h2>
+        <p>L'indice NDVI montre une chute brutale de la végétation suite à l'incendie. En 2023, on note une reprise partielle sur certaines zones, signe d'une régénération progressive, bien que hétérogène.</p>
+    </section>
 
-  <section class="image-block">
-    <h2>Analyse diachronique</h2>
-    <img src="images/avant_incendie.jpg" alt="Avant l'incendie">
-    <p class="caption">Carte diachronique montrant l'évolution des surfaces de la forêt</p>
-    <img src="images/apres_incendie.jpg" alt="Après l'incendie">
-    <p class="caption">Image Sentinel-2 après l'incendie</p>
-  </section>
+    <section class="image-block">
+        <h2>Analyse diachronique</h2>
+        <img src="images/avant_incendie.jpg" alt="Avant l'incendie">
+        <p class="caption">Carte diachronique montrant l'évolution des surfaces de la forêt</p>
+        <img src="images/apres_incendie.jpg" alt="Après l'incendie">
+        <p class="caption">Image Sentinel-2 après l'incendie</p>
+    </section>
 
-  <section class="interpretation-block">
-    <h2>Analyse avant/après incendie</h2>
-    <p>Les comparaisons visuelles confirment les résultats quantitatifs : perte de couvert végétal dense, apparition de sols nus, zones noircies caractéristiques de la combustion. Ces changements sont bien détectés par les méthodes d'observation spatiale.</p>
-  </section>
+    <section class="interpretation-block">
+        <h2>Analyse avant/après incendie</h2>
+        <p>Les comparaisons visuelles confirment les résultats quantitatifs : perte de couvert végétal dense, apparition de sols nus, zones noircies caractéristiques de la combustion. Ces changements sont bien détectés par les méthodes d'observation spatiale.</p>
+    </section>
 
-  <section class="graph-block">
-    <h2>Graphique récapitulatif</h2>
-    <img src="images/graphique_surfaces.jpg" alt="Graphique des surfaces classées">
-    <p class="caption">Évolution des surfaces classées par catégorie entre 2022 et 2023</p>
-  </section>
+    <section class="graph-block">
+        <h2>Graphique récapitulatif</h2>
+        <img src="images/graphique_surfaces.jpg" alt="Graphique des surfaces classées">
+        <p class="caption">Évolution des surfaces classées par catégorie entre 2022 et 2023</p>
+    </section>
 
-  <section class="interpretation-block">
-    <h2>Conclusion générale</h2>
-    <p>Les différentes analyses croisées (classifications, NDVI, diachronie visuelle) permettent de dresser un bilan clair des impacts de l’incendie. Le traitement automatique des images satellites offre des outils puissants pour le suivi environnemental post-catastrophe.</p>
-  </section>
+    <section class="interpretation-block">
+        <h2>Conclusion générale</h2>
+        <p>Les différentes analyses croisées (classifications, NDVI, diachronie visuelle) permettent de dresser un bilan clair des impacts de l’incendie. Le traitement automatique des images satellites offre des outils puissants pour le suivi environnemental post-catastrophe.</p>
+    </section>
 
-  <section style="text-align: center;">
-    <a class="button" href="index.html">⬅ Retour au portfolio</a>
-  </section>
+    <section style="text-align: center;">
+        <a class="button" href="index.html">⬅ Retour au portfolio</a>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Matteo Tournier</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Matteo Tournier</p>
+    </footer>
 </body>
+
 </html>
