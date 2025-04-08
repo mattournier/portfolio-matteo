@@ -9,9 +9,12 @@
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 2rem 0; /* Ajoute un peu de marge en haut et en bas */
             background-color: #f9f9f9;
             color: #333;
+            display: flex; /* Utilise Flexbox pour le body */
+            justify-content: center; /* Centre horizontalement les éléments enfants (la section) */
+            align-items: flex-start; /* Aligne les éléments enfants en haut */
         }
 
         body.dark {
@@ -57,7 +60,7 @@
 
         section {
             max-width: 900px;
-            margin: 2rem auto; /* Correction pour centrer la section */
+            margin: 2rem 0; /* Retirer le 'auto' ici car le centrage se fait via Flexbox sur le body */
             padding: 2rem;
         }
 
@@ -127,6 +130,12 @@
 </head>
 
 <body>
+    <script>
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+    </script>
     <header>
         <h1>Projet 1 : Incendie de la forêt de la Teste-de-Buch</h1>
         <p>Analyse des dégâts environnementaux à l'aide d'imagerie satellitaire</p>
