@@ -13,9 +13,11 @@
             background-color: #f9f9f9;
             color: #333;
             display: flex; /* Utilise Flexbox pour le body */
-            justify-content: center; /* Centre horizontalement les éléments enfants (la section) */
-            align-items: center; /* Centre verticalement les éléments enfants (la section) */
+            justify-content: center; /* Centre horizontalement l'élément enfant (la section) */
+            align-items: center; /* Centre verticalement l'élément enfant (la section) */
             min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la fenêtre */
+            flex-direction: column; /* Important : pour que les éléments à l'intérieur de la section restent en colonne */
+            text-align: center; /* Optionnel : pour centrer le texte à l'intérieur des blocs */
         }
 
         body.dark {
@@ -61,8 +63,10 @@
 
         section {
             max-width: 900px;
-            margin: 2rem 0; /* La marge verticale est conservée pour l'espacement interne */
+            margin-top: 2rem; /* Ajoute une marge en haut pour l'espacement si nécessaire */
+            margin-bottom: 2rem; /* Ajoute une marge en bas pour l'espacement si nécessaire */
             padding: 2rem;
+            /* Les autres styles de la section restent inchangés */
         }
 
         h1,
