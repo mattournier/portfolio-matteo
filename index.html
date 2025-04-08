@@ -315,6 +315,89 @@
             background-color: white;
             color: #1e1e1e;
         }
+
+        /* Styles pour les écrans jusqu'à 768px de largeur (tablettes et téléphones) */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 2rem 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column; /* Les liens de navigation s'affichent verticalement */
+                align-items: center;
+                padding: 1rem;
+            }
+
+            nav a {
+                margin: 0.5rem 0;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            #projets {
+                gap: 1.5rem; /* Réduire l'espace entre les projets */
+            }
+
+            .project {
+                flex-direction: column; /* Afficher l'image et le texte l'un au-dessus de l'autre */
+                align-items: center;
+                text-align: center;
+            }
+
+            .project a {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .project img {
+                margin-right: 0; /* Supprimer la marge à droite de l'image */
+                width: 80%; /* Rendre l'image plus grande sur mobile */
+                max-width: 300px; /* Limiter la largeur maximale de l'image */
+            }
+
+            .skill {
+                padding: 1rem;
+                text-align: center; /* Centrer le texte des compétences */
+            }
+
+            .button {
+                width: 100%; /* Le bouton prend toute la largeur */
+                text-align: center;
+            }
+
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+
+            .dark-toggle {
+                top: 0.5rem;
+                right: 0.5rem;
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+        }
+
+        /* Styles pour les écrans encore plus petits (téléphones) */
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 1.7rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
