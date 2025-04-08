@@ -9,12 +9,13 @@
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 2rem 0; /* Ajoute un peu de marge en haut et en bas */
+            padding: 0; /* Suppression du padding vertical ici */
             background-color: #f9f9f9;
             color: #333;
             display: flex; /* Utilise Flexbox pour le body */
             justify-content: center; /* Centre horizontalement les éléments enfants (la section) */
-            align-items: flex-start; /* Aligne les éléments enfants en haut */
+            align-items: center; /* Centre verticalement les éléments enfants (la section) */
+            min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la fenêtre */
         }
 
         body.dark {
@@ -60,7 +61,7 @@
 
         section {
             max-width: 900px;
-            margin: 2rem 0; /* Retirer le 'auto' ici car le centrage se fait via Flexbox sur le body */
+            margin: 2rem 0; /* La marge verticale est conservée pour l'espacement interne */
             padding: 2rem;
         }
 
