@@ -1,318 +1,365 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matteo Tournier | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      animation: fadeIn 1.5s ease;
-    }
-    body.dark {
-      background-color: #1e1e1e;
-      color: #eee;
-    }
-    body.dark .project,
-    body.dark .skill {
-      background-color: #2a2a2a;
-      color: #eee;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    header {
-      background-color: #0077cc;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid white;
-      margin-top: 1rem;
-      transition: transform 0.3s ease;
-    }
-    header img:hover {
-      transform: scale(1.05);
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #005fa3;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: white;
-      transition: width 0.3s;
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-    section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-weight: 800;
-    }
-    #projets {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-    
-    }
-    .project {
-  border-left: 6px solid #0077cc;
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: perspective(1px) translateZ(0);
-  position: relative;
-  overflow: hidden;
-}
-.project::before {
-$1
-  pointer-events: none;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matteo Tournier | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-.project:hover::before {
-  opacity: 1;
-}
-.project:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-}
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-    }
-    .project a {
-  color: inherit;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-direction: row;
-}
-    .project img {
-  width: 150px;
-  height: auto;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-    .skill {
-      background: white;
-      padding: 1rem;
-      margin-bottom: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-    .skill p::before {
-      content: "✔️ ";
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 1rem;
-      background-color: #0077cc;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0077cc;
-      color: white;
-    }
-    footer::before {
-      content: "🗺️";
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #005fa3;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 50%;
-      font-size: 18px;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s;
-      z-index: 1000;
-    }
-    .back-to-top:hover {
-      background-color: #004b82;
-    }
-    .dark-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #fff;
-  color: #333;
-  border: 2px solid #0077cc;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  cursor: pointer;
-  z-index: 1001;
-  transition: background 0.3s;
-}
-.dark-toggle:hover {
-  background: #0077cc;
-  color: white;
-}
-  </style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            animation: fadeIn 1.5s ease;
+        }
+
+        body.dark {
+            background-color: #1e1e1e;
+            color: #eee;
+        }
+
+        body.dark .project,
+        body.dark .skill {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        header img:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #005fa3;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+
+        #projets {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .project {
+            border-left: 6px solid #0077cc;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: perspective(1px) translateZ(0);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .project::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            transition: transform 0.3s ease-out;
+            pointer-events: none;
+        }
+
+        .project:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .project a {
+            color: inherit;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-direction: row;
+        }
+
+        .project img {
+            width: 150px;
+            height: auto;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-right: 1.5rem;
+        }
+
+        .project img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill p::before {
+            content: "✔️ ";
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0077cc;
+            color: white;
+        }
+
+        footer::before {
+            content: "🗺️";
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #005fa3;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #004b82;
+        }
+
+        .dark-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #fff;
+            color: #333;
+            border: 2px solid #0077cc;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background 0.3s;
+        }
+
+        .dark-toggle:hover {
+            background: #0077cc;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
-  <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌓 Mode</button>
-  <a href="#top" class="back-to-top" title="Retour en haut">↑</a>
-  <script>
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    fadeElements.forEach(el => observer.observe(el));
-  </script>
-<body>
-  <header>
-    <h1>Matteo Tournier</h1>
-    <p>Étudiant en Master 1 Géomatique et Analyse Spatiale</p>
-    <img src="photo.jpg" alt="Photo de Matteo Tournier">
-  </header>
-  <nav>
-    <a href="#apropos">À propos</a>
-    <a href="#projets">Projets</a>
-    <a href="#competences">Compétences</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌓 Mode</button>
+    <a href="#top" class="back-to-top" title="Retour en haut">↑</a>
+    <script>
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {
+            threshold: 0.1
+        });
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+    <header>
+        <h1>Matteo Tournier</h1>
+        <p>Étudiant en Master 1 Géomatique et Analyse Spatiale</p>
+        <img src="photo.jpg" alt="Photo de Matteo Tournier">
+    </header>
+    <nav>
+        <a href="#apropos">À propos</a>
+        <a href="#projets">Projets</a>
+        <a href="#competences">Compétences</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-  <section id="apropos">
-    <h2>À propos</h2>
-    <p>Je suis actuellement en première année de Master en Géomatique et Analyse Spatiale à l'Institut d'Urbanisme et de Géographie Alpine (IUGA) de Grenoble. Passionné par la cartographie, les systèmes d'information géographique (SIG) et la programmation, je développe des projets mêlant données géographiques et outils numériques. Vous pourrez trouver ici quelques-uns de mes projets académiques.</p>
-    <p><a href="cv_MatteoTournier.pdf" class="button" target="_blank">📄 Télécharger mon CV</a></p>
-  </section>
+    <section id="apropos">
+        <h2>À propos</h2>
+        <p>Je suis actuellement en première année de Master en Géomatique et Analyse Spatiale à l'Institut d'Urbanisme et de Géographie Alpine (IUGA) de Grenoble. Passionné par la cartographie, les systèmes d'information géographique (SIG) et la programmation, je développe des projets mêlant données géographiques et outils numériques. Vous pourrez trouver ici quelques-uns de mes projets académiques.</p>
+        <p><a href="cv_MatteoTournier.pdf" class="button" target="_blank">📄 Télécharger mon CV</a></p>
+    </section>
 
-  <section id="projets">
-    <h2>Projets académiques</h2>
-    <div class="project">
-      <a href="projet1.html">
-        <img src="images/thumb_projet1.jpg" alt="Aperçu projet 1">
-        <div>
-          <h3>Projet 1 - Analyse des dégâts occasionnés par l’incendie de la forêt de la Teste-de-Buch (été 2022)</h3>
-          <p><strong>Outils :</strong> QGIS, Orfeo Tool Box</p>
-          <p><strong>Données :</strong> GEODES, Sentinel 2B</p>
-          <p>Évaluation des destructions occasionnées par l’incendie via imagerie satellitaire multispectrale et classification supervisée OTB.</p>
-          <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
+    <section id="projets">
+        <h2>Projets académiques</h2>
+        <div class="project">
+            <a href="projet1.html">
+                <img src="images/thumb_projet1.jpg" alt="Aperçu projet 1">
+                <div>
+                    <h3>Projet 1 - Analyse des dégâts occasionnés par l’incendie de la forêt de la Teste-de-Buch (été 2022)</h3>
+                    <p><strong>Outils :</strong> QGIS, Orfeo Tool Box</p>
+                    <p><strong>Données :</strong> GEODES, Sentinel 2B</p>
+                    <p>Évaluation des destructions occasionnées par l’incendie via imagerie satellitaire multispectrale et classification supervisée OTB.</p>
+                    <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
+                </div>
+            </a>
         </div>
-      </a>
-    </div>
-    <div class="project">
-      <a href="projet2.html">
-        <img src="images/thumb_projet2.jpg" alt="Aperçu projet 2">
-        <div>
-          <h3>Projet 2 - Analyse du risque d'inondation : étude de cas des communes d'Isère</h3>
-          <p><strong>Outils :</strong> QGIS, ArcGIS Pro, Rstudio</p>
-          <p><strong>Données :</strong> DREAL, BD TOPO, OpenStreetMap</p>
-          <p>Création d'un indicateur pour classer les cours d'eau en fonction du potentiel de menace face aux communes d'Isère.</p>
-          <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
+        <div class="project">
+            <a href="projet2.html">
+                <img src="images/thumb_projet2.jpg" alt="Aperçu projet 2">
+                <div>
+                    <h3>Projet 2 - Analyse du risque d'inondation : étude de cas des communes d'Isère</h3>
+                    <p><strong>Outils :</strong> QGIS, ArcGIS Pro, Rstudio</p>
+                    <p><strong>Données :</strong> DREAL, BD TOPO, OpenStreetMap</p>
+                    <p>Création d'un indicateur pour classer les cours d'eau en fonction du potentiel de menace face aux communes d'Isère.</p>
+                    <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
+                </div>
+            </a>
         </div>
-      </a>
-    </div>
-    <div class="project">
-      <a href="projet3.html">
-        <img src="images/thumb_projet3.jpg" alt="Aperçu projet 3">
-        <div>
-          <h3>Projet 3 - Cartographie de données scrappées de l'office de tourisme Alpes Isère</h3>
-          <p><strong>Outils :</strong> Python, Jupyter Notebook, Folium</p>
-          <p><strong>Données :</strong> Données des refuges scrappées</p>
-          <p>Scraping des données touristiques, nettoyage, export en CSV, puis cartographie interactive via Folium.</p>
-          <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
+        <div class="project">
+            <a href="projet3.html">
+                <img src="images/thumb_projet3.jpg" alt="Aperçu projet 3">
+                <div>
+                    <h3>Projet 3 - Cartographie de données scrappées de l'office de tourisme Alpes Isère</h3>
+                    <p><strong>Outils :</strong> Python, Jupyter Notebook, Folium</p>
+                    <p><strong>Données :</strong> Données des refuges scrappées</p>
+                    <p>Scraping des données touristiques, nettoyage, export en CSV, puis cartographie interactive via Folium.</p>
+                    <p style="font-weight: bold; color: #0077cc;">➡ Voir le projet complet</p>
+                </div>
+            </a>
         </div>
-      </a>
-    </div>
-  </section>
+    </section>
 
-  <section id="competences">
-    <h2>Compétences</h2>
-    <div class="skill">
-      <p><strong>SIG :</strong> QGIS, ArcGIS Pro</p>
-      <p><strong>Langages :</strong> Python, R, Rstudio, SQL</p>
-      <p><strong>Workflow :</strong> FME, Data Interoperability</p>
-      <p><strong>Télédétection :</strong> Orfeo Tool Box, Photoscan</p>
-      <p><strong>Base de données :</strong> PostGIS</p>
-      <p><strong>Éditeur de SIG :</strong> GEO (Business Geographic)</p>
-    </div>
-  </section>
+    <section id="competences">
+        <h2>Compétences</h2>
+        <div class="skill">
+            <p><strong>SIG :</strong> QGIS, ArcGIS Pro</p>
+            <p><strong>Langages :</strong> Python, R, Rstudio, SQL</p>
+            <p><strong>Workflow :</strong> FME, Data Interoperability</p>
+            <p><strong>Télédétection :</strong> Orfeo Tool Box, Photoscan</p>
+            <p><strong>Base de données :</strong> PostGIS</p>
+            <p><strong>Éditeur de SIG :</strong> GEO (Business Geographic)</p>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email : matteo.tournier375@gmail.com</p>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/matteotournier" target="_blank">LinkedIn</a>
-      <a href="https://github.com/mattournier" target="_blank">GitHub</a>
-      <a href="cv_MatteoTournier.pdf" class="button" target="_blank">📄 Mon CV</a>
-    </div>
-  </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : matteo.tournier375@gmail.com</p>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/matteotournier" target="_blank">LinkedIn</a>
+            <a href="https://github.com/mattournier" target="_blank">GitHub</a>
+            <a href="cv_MatteoTournier.pdf" class="button" target="_blank">📄 Mon CV</a>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Matteo Tournier</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Matteo Tournier</p>
+    </footer>
 </body>
+
 </html>
