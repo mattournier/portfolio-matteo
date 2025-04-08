@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matteo Tournier | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌓 Mode</button>
+    <a href="#top" class="back-to-top" title="Retour en haut">↑</a>
+
+    <div id="header"></div>
+    <div id="about"></div>
+    <div id="projects"></div>
+    <div id="skills"></div>
+    <div id="contact"></div>
+    <div id="footer"></div>
+
+    <script>
+        const sections = {
+            header: "header.html",
+            about: "about.html",
+            projects: "projects.html",
+            skills: "skills.html",
+            contact: "contact.html",
+            footer: "footer.html"
+        };
+
+        for (const [id, file] of Object.entries(sections)) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+
+        // Script de fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const interval = setInterval(() => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            if (fadeElements.length > 0) {
+                fadeElements.forEach(el => observer.observe(el));
+                clearInterval(interval);
+            }
+        }, 500);
+    </script>
+</body>
+</html>
