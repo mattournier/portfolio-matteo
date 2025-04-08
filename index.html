@@ -53,55 +53,72 @@
             transform: translateY(0);
         }
 
+        /* Styles améliorés pour l'en-tête */
         header {
-            background-color: #0077cc;
+            background: linear-gradient(135deg, #0077cc, #005fa3);
             color: white;
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
         }
 
         header img {
-            width: 120px;
-            height: 120px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid white;
-            margin-top: 1rem;
-            transition: transform 0.3s ease;
+            border: 4px solid white;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
         }
 
         header img:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
+        /* Styles améliorés pour la navigation */
         nav {
             display: flex;
             justify-content: center;
-            background-color: #005fa3;
+            background-color: rgba(0, 95, 163, 0.9); /* Semi-transparent */
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 10;
+            backdrop-filter: blur(10px); /* Effet de flou derrière la transparence */
         }
 
         nav a {
             color: white;
-            margin: 0 1rem;
+            margin: 0 1.5rem;
             text-decoration: none;
             font-weight: 600;
             position: relative;
+            letter-spacing: 0.5px;
         }
 
         nav a::after {
             content: '';
             display: block;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: white;
-            transition: width 0.3s;
+            transition: width 0.3s ease-in-out;
             position: absolute;
-            bottom: -4px;
+            bottom: -6px;
             left: 0;
         }
 
@@ -111,8 +128,8 @@
 
         section {
             padding: 3rem 2rem;
-            max-width: 1000px; /* Ajout important pour le centrage */
-            margin: auto;      /* Ajout important pour le centrage */
+            max-width: 1000px;
+            margin: auto;
         }
 
         h2 {
@@ -246,24 +263,25 @@
             background-color: #004b82;
         }
 
+        /* Style amélioré pour le bouton de mode sombre */
         .dark-toggle {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: #fff;
-            color: #333;
-            border: 2px solid #0077cc;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 14px;
+            background: none;
+            color: white;
+            border: 2px solid white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 16px;
             cursor: pointer;
             z-index: 1001;
-            transition: background 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         .dark-toggle:hover {
-            background: #0077cc;
-            color: white;
+            background-color: white;
+            color: #333;
         }
     </style>
 </head>
