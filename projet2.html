@@ -1,109 +1,162 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet 2 - Risque d'inondation dans l'Isère</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      text-align: center;
-    }
-    header {
-      background-color: #0077cc;
-      color: white;
-      padding: 2rem;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .image-block {
-      margin: 2rem auto;
-      background: white;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 1rem auto;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #0077cc;
-      color: white;
-    }
-    a.button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 1rem;
-      background-color: #005fa3;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-    p.caption {
-      text-align: center;
-      font-style: italic;
-      margin-top: -0.5rem;
-      margin-bottom: 1.5rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 2 - Risque d'inondation dans l'Isère</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+
+        body.dark {
+            background-color: #1e1e1e;
+            color: #eee;
+        }
+
+        body.dark header {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark section {
+            background-color: #2a2a2a;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark .image-block {
+            margin: 2rem auto;
+            background: #333;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        body.dark img {
+            filter: brightness(0.8) contrast(1.2); /* Optionnel: ajuster la luminosité des images en mode sombre */
+        }
+
+        body.dark footer {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark a.button {
+            background-color: #005fa3; /* Garder la couleur du bouton ou l'adapter */
+            color: white;
+        }
+
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 2rem;
+        }
+
+        section {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .image-block {
+            margin: 2rem auto;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0077cc;
+            color: white;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            background-color: #005fa3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        p.caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Projet 2 : Analyse du risque d'inondation dans l'Isère</h1>
-    <p>Étude territoriale croisant enjeux humains et aléas hydrologiques</p>
-  </header>
+    <script>
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+    </script>
+    <header>
+        <h1>Projet 2 : Analyse du risque d'inondation dans l'Isère</h1>
+        <p>Étude territoriale croisant enjeux humains et aléas hydrologiques</p>
+    </header>
 
-  <section>
-    <h2>Contexte</h2>
-    <p>Ce projet vise à évaluer le niveau de risque d'inondation dans les communes de l'Isère, en croisant les données sur la population, le bâti et les enveloppes potentielles d’inondation (EAIP). L'objectif est de visualiser les zones à fort enjeu et vulnérables au risque hydrologique.</p>
-  </section>
+    <section>
+        <h2>Contexte</h2>
+        <p>Ce projet vise à évaluer le niveau de risque d'inondation dans les communes de l'Isère, en croisant les données sur la population, le bâti et les enveloppes potentielles d’inondation (EAIP). L'objectif est de visualiser les zones à fort enjeu et vulnérables au risque hydrologique.</p>
+    </section>
 
-  <section class="image-block">
-    <h2>Population exposée à l'EAIP</h2>
-    <img src="images/eaip_population_communes.jpg" alt="Carte population et EAIP">
-    <p class="caption">Communes de l’Isère en fonction de la part de la population concernée par l'EAIP</p>
-  </section>
+    <section class="image-block">
+        <h2>Population exposée à l'EAIP</h2>
+        <img src="images/eaip_population_communes.jpg" alt="Carte population et EAIP">
+        <p class="caption">Communes de l’Isère en fonction de la part de la population concernée par l'EAIP</p>
+    </section>
 
-  <section class="image-block">
-    <h2>Enjeux urbains à Grenoble</h2>
-    <img src="images/enjeu_bati_grenoble.jpg" alt="Carte enjeu bâti Grenoble">
-    <p class="caption">L’enjeu du bâti de Grenoble face à l’inondation</p>
-  </section>
+    <section class="image-block">
+        <h2>Enjeux urbains à Grenoble</h2>
+        <img src="images/enjeu_bati_grenoble.jpg" alt="Carte enjeu bâti Grenoble">
+        <p class="caption">L’enjeu du bâti de Grenoble face à l’inondation</p>
+    </section>
 
-  <section class="image-block">
-    <h2>Risque global par cours d’eau</h2>
-    <img src="images/risque_cours_eau_isere.jpg" alt="Carte risque cours d'eau">
-    <p class="caption">Niveau de risque présenté par les cours d'eau de l'Isère selon la part de population exposée à l'EAIP</p>
-  </section>
+    <section class="image-block">
+        <h2>Risque global par cours d’eau</h2>
+        <img src="images/risque_cours_eau_isere.jpg" alt="Carte risque cours d'eau">
+        <p class="caption">Niveau de risque présenté par les cours d'eau de l'Isère selon la part de population exposée à l'EAIP</p>
+    </section>
 
-  <section>
-    <h2>Analyse</h2>
-    <p>La combinaison des cartes permet de cibler les secteurs où les enjeux humains sont importants face à un risque d’inondation significatif. Grenoble, avec son bâti dense, illustre bien cette confrontation entre urbanisation et aléa. Les EAIP associées aux cours d'eau montrent des zones critiques où l’aménagement futur doit intégrer la prévention des risques.</p>
-  </section>
+    <section>
+        <h2>Analyse</h2>
+        <p>La combinaison des cartes permet de cibler les secteurs où les enjeux humains sont importants face à un risque d’inondation significatif. Grenoble, avec son bâti dense, illustre bien cette confrontation entre urbanisation et aléa. Les EAIP associées aux cours d'eau montrent des zones critiques où l’aménagement futur doit intégrer la prévention des risques.</p>
+    </section>
 
-  <section style="text-align: center;">
-    <a class="button" href="index.html">⬅ Retour au portfolio</a>
-  </section>
+    <section style="text-align: center;">
+        <a class="button" href="index.html">⬅ Retour au portfolio</a>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Matteo Tournier</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Matteo Tournier</p>
+    </footer>
 </body>
 </html>
