@@ -1,9 +1,30 @@
 <section id="contact">
-    <h2>Contact</h2>
-    <p>Email : matteo.tournier375@gmail.com</p>
-    <div class="links">
-        <a href="https://www.linkedin.com/in/matteotournier" target="_blank">LinkedIn</a>
-        <a href="https://github.com/mattournier" target="_blank">GitHub</a>
-        <a href="cv_MatteoTournier.pdf" class="button" target="_blank">📄 Mon CV</a>
+    <h2>Contactez-moi</h2>
+    <p>Vous avez une question ou souhaitez collaborer ? Envoyez-moi un message !</p>
+    <form action="https://formspree.io/f/{your-form-id}" method="POST">
+        <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Votre message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="button">Envoyer</button>
+    </form>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/votreprofil" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/mattournier" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:matteo.tournier375@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
     </div>
-</section>
+</section
