@@ -16,7 +16,7 @@ body {
 }
 
 body.dark {
-    background-color: #1e1e1e;
+    background-color: #2e2e2e; /* Fond gris clair au lieu du blanc */
     color: #eee;
 }
 
@@ -140,18 +140,16 @@ nav a:hover::after {
 section {
     padding: 4rem 2rem;
     max-width: 900px; /* Largeur maximale */
-    margin: 2rem auto; /* Centrage horizontal automatique */
-    background-color: white; /* Fond blanc */
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Alignement du texte à gauche */
-    box-sizing: border-box; /* Inclure padding et border dans la largeur */
-    width: 90%; /* Prend 90% de la largeur sur les petits écrans */
+    margin: 2rem auto; /* Centrage horizontal */
+    background-color: #ffffff; /* Fond blanc pour chaque section */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Ombre légère */
+    border-radius: 12px; /* Coins arrondis */
+    text-align: left; /* Alignement du texte */
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem; /* Réduit la marge inférieure (était 3rem) */
     font-weight: 800;
     font-size: 2.2rem;
     color: #333;
@@ -178,6 +176,7 @@ h2 {
     align-items: center;
 }
 
+/* Couleur de l'animation de survol en mode clair */
 .project::before {
     content: '';
     position: absolute;
@@ -188,9 +187,9 @@ h2 {
     bottom: 0;
     transform: scaleX(0);
     transform-origin: 0 50%;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out;
     pointer-events: none;
-    background-color: #f0f0f0;
+    background-color: #fafafa; /* Couleur encore plus claire pour le mode clair */
 }
 
 .project:hover::before {
@@ -200,6 +199,11 @@ h2 {
 .project:hover {
     transform: translateY(-3px) scale(1.01);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    color: #ccc; /* Couleur légèrement grise pour éviter le contraste trop fort */
+}
+
+.project:hover a {
+    color: #bbb; /* Couleur légèrement plus foncée pour les liens */
 }
 
 .project a {
@@ -227,11 +231,14 @@ h2 {
 
 /* On garde les styles des compétences */
 .skill {
-    background: white;
+    background: transparent; /* Supprime le fond blanc */
+    box-shadow: none; /* Supprime l'ombre */
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 0; /* Supprime les coins arrondis */
+    max-width: 900px; /* Largeur maximale alignée avec les autres sections */
+    margin: 0 auto; /* Centrage horizontal */
+    text-align: left; /* Alignement du texte */
 }
 
 .skill p {
@@ -329,6 +336,282 @@ body.dark .dark-toggle:hover {
     color: #1e1e1e;
 }
 
+/* Conteneur du switch */
+.dark-toggle-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+}
+
+/* Cacher l'input checkbox */
+.dark-toggle-checkbox {
+    display: none;
+}
+
+/* Styliser le label comme un switch */
+.dark-toggle-label {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Le cercle du switch */
+.dark-toggle-label::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Quand le checkbox est activé */
+.dark-toggle-checkbox:checked + .dark-toggle-label {
+    background-color: #0077cc;
+}
+
+.dark-toggle-checkbox:checked + .dark-toggle-label::after {
+    transform: translateX(25px);
+}
+
+/* Mode sombre */
+body.dark .dark-toggle-label {
+    background-color: #555;
+}
+
+body.dark .dark-toggle-checkbox:checked + .dark-toggle-label {
+    background-color: #0077cc;
+}
+
+/* Mode sombre global */
+body.dark {
+    background-color: #2e2e2e; /* Fond gris clair au lieu du blanc */
+    color: #eee; /* Couleur de texte claire */
+}
+
+/* Mode sombre pour les sections */
+body.dark section {
+    background-color: #2a2a2a; /* Fond des sections */
+    color: #eee; /* Texte des sections */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Ombre plus sombre */
+}
+
+/* Mode sombre pour les projets */
+body.dark .project {
+    background-color: #333; /* Fond des projets */
+    color: #eee; /* Texte des projets */
+    border-left-color: #0077cc; /* Bordure bleue */
+}
+
+/* Couleur de l'animation de survol en mode sombre */
+body.dark .project::before {
+    background-color: #444; /* Couleur de fond en mode sombre */
+}
+
+/* Mode sombre pour les compétences */
+body.dark .skill {
+    background-color: #333; /* Fond des compétences */
+    color: #eee; /* Texte des compétences */
+}
+
+/* Mode sombre pour la navigation */
+body.dark nav {
+    background-color: #2a2a2a; /* Fond de la navigation */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); /* Ombre plus sombre */
+}
+
+body.dark nav a {
+    color: #eee; /* Texte des liens */
+}
+
+body.dark nav a:hover {
+    color: #0077cc; /* Couleur au survol */
+}
+
+/* Mode sombre pour le pied de page */
+body.dark footer {
+    background-color: #2a2a2a; /* Fond du pied de page */
+    color: #bbb; /* Texte du pied de page */
+}
+
+/* Mode sombre pour le bouton retour en haut */
+body.dark .back-to-top {
+    background-color: #333; /* Fond du bouton */
+    color: #eee; /* Texte du bouton */
+}
+
+body.dark .back-to-top:hover {
+    background-color: #0077cc; /* Fond au survol */
+}
+
+/* Mode sombre pour les images */
+body.dark header img {
+    border-color: #444; /* Bordure des images */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Ombre plus sombre */
+}
+
+/* Mode sombre pour les titres des sections */
+body.dark h2, 
+body.dark h3, 
+body.dark h4 {
+    color: #eee; /* Couleur claire pour les titres */
+}
+
+/* Optionnel : Ajout d'une couleur d'accentuation */
+body.dark h2 {
+    /* border-bottom: 2px solid #0077cc; */
+    padding-bottom: 0; /* Ajustez le padding si nécessaire */
+}
+
+/* Mode sombre pour le header */
+body.dark header {
+    background-color: #2a2a2a; /* Fond sombre pour le header */
+    color: #eee; /* Texte clair */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Ombre plus sombre */
+}
+
+body.dark header h1 {
+    color: #0077cc; /* Couleur bleue pour le titre principal */
+}
+
+body.dark header p {
+    color: #ccc; /* Couleur légèrement grise pour le sous-titre */
+}
+
+body.dark header img {
+    border-color: #444; /* Bordure plus sombre pour l'image */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Ombre plus sombre */
+}
+
+/* Section Contact */
+#contact {
+    padding: 4rem 2rem;
+    border-radius: 12px;
+    box-shadow: none; /* Supprime l'ombre */
+    background-color: transparent; /* Supprime le fond blanc */
+    max-width: 900px; /* Largeur maximale alignée avec les autres sections */
+    margin: 2rem auto; /* Centrage horizontal */
+    text-align: center;
+    font-family: inherit; /* Hérite de la police définie dans le body */
+    font-size: 1rem; /* Taille de police par défaut */
+    line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+    color: inherit; /* Hérite de la couleur définie dans le body */
+}
+
+/* Titre de la section Contact */
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: inherit; /* Hérite de la couleur définie globalement */
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #0077cc;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
+
+/* Mode sombre pour la section Contact */
+body.dark #contact {
+    background-color: #333; /* Fond sombre pour la section */
+    color: #eee; /* Couleur claire pour le texte */
+}
+
+/* Mode sombre pour les titres */
+body.dark #contact h2 {
+    color: inherit; /* Hérite de la couleur claire définie pour les titres en mode sombre */
+}
+
+body.dark #contact p {
+    color: #ccc; /* Couleur légèrement grise pour le texte */
+}
+
+body.dark #contact label {
+    color: #ddd; /* Couleur claire pour les labels */
+}
+
+body.dark #contact input,
+body.dark #contact textarea {
+    background-color: #444; /* Fond sombre pour les champs */
+    color: #eee; /* Texte clair */
+    border: 1px solid #555; /* Bordure légèrement plus claire */
+}
+
+body.dark #contact input:focus,
+body.dark #contact textarea:focus {
+    border-color: #0077cc; /* Bordure bleue au focus */
+    outline: none;
+}
+
+body.dark #contact button {
+    background-color: #0077cc; /* Bouton bleu */
+    color: #fff; /* Texte blanc */
+}
+
+body.dark #contact button:hover {
+    background-color: #005fa3; /* Bouton bleu foncé au survol */
+}
+
 /* On ajuste les styles responsifs */
 @media screen and (max-width: 768px) {
     header {
@@ -411,4 +694,26 @@ body.dark .dark-toggle:hover {
     header p {
         font-size: 1rem;
     }
+}
+
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: #0077cc;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #005fa3;
+}
+
+/* Justifier le texte dans la section À propos */
+.about p {
+    text-align: justify;
 }
