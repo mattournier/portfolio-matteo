@@ -612,6 +612,34 @@ body.dark #contact button:hover {
     background-color: #005fa3; /* Bouton bleu foncé au survol */
 }
 
+/* Section Problématique */
+.project-problem {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Analyse de Carte */
+.card-analysis {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-left: 4px solid #0077cc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Section Conclusion */
+.project-conclusion {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 /* On ajuste les styles responsifs */
 @media screen and (max-width: 768px) {
     header {
