@@ -1,7 +1,8 @@
+// Script de dark mode avec le switch toggle
+const darkToggleCheckbox = document.querySelector('.dark-toggle-checkbox');
 
-// Script de dark mode déjà inclus dans le bouton
-document.querySelector('.dark-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark');
+darkToggleCheckbox.addEventListener('change', () => {
+    document.body.classList.toggle('dark', darkToggleCheckbox.checked);
 });
 
 // Script de fade-in
