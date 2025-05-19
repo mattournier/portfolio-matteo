@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartographie opérationnelle d'aide à la gestion de crise.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 2rem 0; /* Ajout de padding vertical pour éviter le contenu collé */
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column; /* Assure que les éléments s'affichent verticalement */
+            align-items: center; /* Centre horizontalement le contenu */
+            text-align: center; /* Centre le texte par défaut */
+            min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la fenêtre */
+        }
+
+        body.dark {
+            background-color: #1e1e1e;
+            color: #eee;
+        }
+
+        body.dark header {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark section {
+            background-color: #2a2a2a;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark .image-block,
+        body.dark .graph-block,
+        body.dark .interpretation-block {
+            background: #333;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark footer {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark a.button {
+            background-color: #005fa3; /* Garder la couleur du bouton ou l'adapter */
+            color: white;
+        }
+
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            width: 100%; /* Prend toute la largeur du body */
+            box-sizing: border-box; /* Inclut le padding dans la largeur */
+        }
+
+        section {
+            max-width: 900px;
+            margin: 2rem 0;
+            padding: 2rem;
+            text-align: left; /* Réinitialise l'alignement du texte pour les paragraphes */
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .image-block,
+        .graph-block,
+        .interpretation-block {
+            margin: 2rem 0;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .interpretation-block p {
+            text-align: justify; /* Justifie le texte à l'intérieur des blocs d'interprétation */
+        }
+
+        /* Style pour afficher les images côte à côte */
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-row img {
+            max-width: 45%;
+            display: block;
+            margin: 0;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 70%;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0077cc;
+            color: white;
+            margin-top: 3rem;
+            width: 100%; /* Prend toute la largeur du body */
+            box-sizing: border-box; /* Inclut le padding dans la largeur */
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            background-color: #005fa3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        p.caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+    </script>
+    <header>
+        <h1>Cartographies opérationnelles d'aide à la gestion de crise.</h1>
+        <p>Cartes de situation et de risque réalisées sur QGIS</p>
+    </header>
+
+    <section>
+        <h2>Contexte et objectifs</h2>
+        <p>La mission qui m’a été confiée portait sur la réalisation de cartes opérationnelles. Dès le premier jour de stage, une liste des différentes communes à cartographier m’a été remise, incluant des cartes de situation et des cartes de risques. Ayant terminé cette tâche plus rapidement que prévu, j’ai pu me consacrer à un projet de plus grande envergure : l’élaboration de cartes de situation et de risques à l’échelle intercommunale. J’ai ainsi travaillé sur la communauté d’agglomération Arche Agglo, située entre la Drôme et l’Ardèche. Durant la dernière semaine, j’ai remis un dossier synthétique contenant des cartes de l’intercommunalité accompagnées d’une analyse des risques, croisée avec les enjeux publics, présentée sous forme de statistiques.</p>
+    </section>
+
+    <section class="image-block">
+        <h2>Liste de cartographies réalisées pour des communes de France</h2>
+        <img src="images/liste_carto.jpg" alt="Changements observés">
+    </section>
+
+    <section class="image-block">
+        <h2>Exemple de cartes de situation</h2>
+        <div class="image-row">
+            <img src="images/carte_situation_prayssac.jpg" alt="Carte de situation de la commune de Prayssac">
+            <img src="images/carte_situation_maubec.jpg" alt="Carte de situation de la commune de Maubec">
+        </div>
+        <p class="caption">Carte de situation pour des communes faisant l'objet de Plan Communal de Sauvegarde (PCS)</p>
+    </section>
+
+    <section class="image-block">
+        <h2>Exemple de cartes de risques</h2>
+        <div class="image-row">
+            <img src="images/carte_risque_champs.jpg" alt="risque_champs">
+            <img src="images/carte_risque_tournon.jpg" alt="risque_tournon">
+        </div>
+        <p class="caption">Cartographie des risques rescensés par Géorisque sur les commnunes</p>
+    </section>
+
+    <section class="interpretation-block">
+        <h2>Conclusion générale</h2>
+        <p>Pour conclure, ce stage a été fructueux dans la mesure où il m’a permis de consolider mes compétences et de mettre en pratique certains acquis théoriques. J’ai également eu l’opportunité de découvrir le monde professionnel, même si je n’ai pas eu le temps d’en explorer toutes les facettes. D’un point de vue personnel, je garderai un excellent souvenir de cette expérience, ainsi que des personnes que j’ai rencontrées. Concernant la poursuite de mes études, ce stage m’a donné envie d’approfondir mes connaissances dans ce domaine, notamment sur les étapes en amont de la représentation cartographique, telles que le webmapping, la géostatistique ou encore la modélisation spatiale. Par ailleurs, la découverte du secteur des risques a éveillé mon intérêt, en ouvrant de nouvelles perspectives de spécialisation, car la géomatique permet d’intervenir dans de nombreux domaines, y compris celui de la gestion des risques.</p>
+    </section>
+
+    <section style="text-align: center;">
+        <a class="button" href="index.html">⬅ Retour au portfolio</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Matteo Tournier</p>
+    </footer>
+</body>
+</html>

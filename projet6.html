@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création d'un plugin QGIS pour la visualisation de déplacement de drône sous-marins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 2rem 0; /* Ajout de padding vertical pour éviter le contenu collé */
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column; /* Assure que les éléments s'affichent verticalement */
+            align-items: center; /* Centre horizontalement le contenu */
+            text-align: center; /* Centre le texte par défaut */
+            min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la fenêtre */
+        }
+
+        body.dark {
+            background-color: #1e1e1e;
+            color: #eee;
+        }
+
+        body.dark header {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark section {
+            background-color: #2a2a2a;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark .image-block,
+        body.dark .graph-block,
+        body.dark .interpretation-block {
+            background: #333;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark footer {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark a.button {
+            background-color: #005fa3; /* Garder la couleur du bouton ou l'adapter */
+            color: white;
+        }
+
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            width: 100%; /* Prend toute la largeur du body */
+            box-sizing: border-box; /* Inclut le padding dans la largeur */
+        }
+
+        section {
+            max-width: 900px;
+            margin: 2rem 0;
+            padding: 2rem;
+            text-align: left; /* Réinitialise l'alignement du texte pour les paragraphes */
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .image-block,
+        .graph-block,
+        .interpretation-block {
+            margin: 2rem 0;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .interpretation-block p {
+            text-align: justify; /* Justifie le texte à l'intérieur des blocs d'interprétation */
+        }
+
+        /* Style pour afficher les images côte à côte */
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-row img {
+            max-width: 45%;
+            display: block;
+            margin: 0;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 70%;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0077cc;
+            color: white;
+            margin-top: 3rem;
+            width: 100%; /* Prend toute la largeur du body */
+            box-sizing: border-box; /* Inclut le padding dans la largeur */
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            background-color: #005fa3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        p.caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+    </script>
+    <header>
+        <h1>Génération automatisé avec FME d'une couche vectorielle des bassins de vie</h1>
+        <p>Réalisation via Data interoperability (ArcGIS Pro)</p>
+    </header>
+
+    <section>
+        <h2>Contexte et objectifs</h2>
+        <p>L’objectif ici est d’automatiser le processus de génération d’une couche vectorielle représentant les bassins de vie en France, à partir d’un fichier CSV contenant leurs caractéristiques et d’un Shapefile des communes françaises comportant plusieurs champs d’identification. Le but est de permettre, grâce à un simple paramétrage initial (comme la saisie du code région dans une fenêtre au lancement), de réaliser l’ensemble de ce traitement de manière entièrement automatique.</p>
+    </section>
+
+    <section class="interpretation-block">
+        <h2>Fonctionnement</h2>
+        <p>Dans ce workspace FME, le traitement commence par la lecture d’un fichier CSV à l’aide d’un lecteur CSV, en s’appuyant sur une connexion à une base PostGIS contenant des données complémentaires. Les attributs sont ensuite renommés ou réorganisés afin d’assurer la cohérence des données. Les informations issues du CSV sont croisées avec celles de la base PostGIS à l’aide d’un transformateur de jointure basé sur un identifiant commun. Des tests sont ensuite appliqués pour filtrer les données pertinentes, notamment en excluant les lignes incomplètes.Si besoin, les géométries sont créées ou ajustées, puis reprojetées dans le bon système de coordonnées. Enfin, le résultat est exporté au format Shapefile, prêt à être utilisé dans un logiciel SIG.</p>
+    </section>
+
+    <section class="graph-block">
+        <h2>Image de la chaîne de traitement</h2>
+        <img src="images/structure_chaine_traitement.jpg" alt="Structure du code">
+    </section>
+
+    <section class="graph-block">
+        <h2>Paramètre choisit en entrée</h2>
+        <img src="images/parametre_utilisateur.jpg" alt="Structure du code">
+        <p class="caption">L'utilisateur peut renseigner le numéro de la région de son choix afin d'obtenir une couche vectorielle avec les données démographiques</p>
+    </section>
+
+    <section class="interpretation-block">
+        <h2>Détails techniques</h2>
+        <p>Dans ce workspace FME, plusieurs transformateurs sont probablement utilisés pour assurer le traitement complet des données de bassins de vie. Le processus commence généralement par un transformateur de type CSV Reader, qui permet d’ouvrir le fichier BV2022.csv et de convertir son contenu en objets manipulables dans le flux de données FME. Une fois les données importées, un transformateur de type AttributeRenamer ou AttributeManager est sans doute utilisé pour renommer ou nettoyer les noms de colonnes, afin d’assurer une cohérence entre les différents jeux de données. Si certaines informations manquent ou doivent être enrichies, un Joiner ou un DatabaseJoiner est probablement mis en œuvre pour effectuer une correspondance entre les données du CSV et celles stockées dans la base PostGIS. Ensuite, un ou plusieurs Tester peuvent être présents pour filtrer les enregistrements selon des conditions précises (par exemple, éliminer les lignes incomplètes ou non géoréférencées). Les géométries peuvent être construites à partir de coordonnées ou enrichies via un GeometryReplacer ou un VertexCreator, en fonction des besoins du projet. Une fois les données prêtes, un transformateur comme Reprojector peut être utilisé pour s’assurer que le système de coordonnées des bassins de vie correspond à celui requis pour la sortie finale. Enfin, le tout est exporté grâce à un Shapefile Writer, qui génère le fichier de sortie lisible dans un SIG. Ce traitement automatisé permet ainsi de passer d’un fichier CSV brut à une couche géographique exploitable, en intégrant des contrôles, des jointures et des transformations précises adaptées aux données de bassins de vie.</p>
+    </section>
+
+    <section style="text-align: center;">
+        <a class="button" href="index.html">⬅ Retour au portfolio</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Matteo Tournier</p>
+    </footer>
+</body>
+</html>
