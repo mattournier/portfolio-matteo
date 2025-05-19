@@ -3,33 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet 4 : Création d'un plugin QGIS - NAIAD</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Création d'un plugin QGIS pour la visualisation de déplacement de drône sous-marins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 2rem 0; /* Ajout de padding vertical pour éviter le contenu collé */
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column; /* Assure que les éléments s'affichent verticalement */
+            align-items: center; /* Centre horizontalement le contenu */
+            text-align: center; /* Centre le texte par défaut */
+            min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la fenêtre */
+        }
+
+        body.dark {
+            background-color: #1e1e1e;
+            color: #eee;
+        }
+
+        body.dark header {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark section {
+            background-color: #2a2a2a;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark .image-block,
+        body.dark .graph-block,
+        body.dark .interpretation-block {
+            background: #333;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark footer {
+            background-color: #2a2a2a;
+            color: #eee;
+        }
+
+        body.dark a.button {
+            background-color: #005fa3; /* Garder la couleur du bouton ou l'adapter */
+            color: white;
+        }
+
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            width: 100%; /* Prend toute la largeur du body */
+            box-sizing: border-box; /* Inclut le padding dans la largeur */
+        }
+
+        section {
+            max-width: 900px;
+            margin: 2rem 0;
+            padding: 2rem;
+            text-align: left; /* Réinitialise l'alignement du texte pour les paragraphes */
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .image-block,
+        .graph-block,
+        .interpretation-block {
+            margin: 2rem 0;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .interpretation-block p {
+            text-align: justify; /* Justifie le texte à l'intérieur des blocs d'interprétation */
+        }
+
+        /* Style pour afficher les images côte à côte */
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-row img {
+            max-width: 45%;
+            display: block;
+            margin: 0;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 70%;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0077cc;
+            color: white;
+            margin-top: 3rem;
+            width: 100%; /* Prend toute la largeur du body */
+            box-sizing: border-box; /* Inclut le padding dans la largeur */
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 1rem;
+            background-color: #005fa3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        p.caption {
+            text-align: center;
+            font-style: italic;
+            margin-top: -0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
+
 <body>
+    <script>
+        const body = document.body;
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+    </script>
     <header>
-        <h1>Création d'un plugin QGIS - NAIAD</h1>
-        <p>Un projet visant à développer un plugin pour QGIS dans le cadre du programme NAIAD.</p>
+        <h1>Plugin QGIS dédié à la visualisation de déplacements de drônes sous-marins</h1>
+        <p>Réalisation du plugin via Python et la librairie Pygame</p>
     </header>
 
-    <section class="project-problem">
-        <h2>Problématique</h2>
-        <p>Comment développer un outil interactif pour faciliter l'analyse des données hydrologiques et la gestion des risques liés à l'eau ?</p>
+    <section>
+        <h2>Contexte et objectifs</h2>
+        <p>Ce projet vise à développer, pour Naval Group et dans le cadre du projet NAIAD, un plugin permettant de visualiser les déplacements de drones sous-marins à partir de données issues d’un fichier CSV. Le plugin offre une interface entièrement interactive avec des outils de contrôle pour observer ces déplacements de manière précise et dynamique. Conçu pour QGIS, il permet de visualiser les trajectoires d’objets mobiles en temps réel, grâce à une animation basée sur Pygame, affichée soit sur une carte raster, soit sur un fond neutre.</p>
     </section>
 
-    <section class="image-block">
-        <h2>Fonctionnalités principales</h2>
-        <img src="images/plugin_qgis.jpg" alt="Aperçu du plugin QGIS">
-        <p class="caption">Interface utilisateur du plugin QGIS développé dans le cadre du projet NAIAD.</p>
-        <div class="card-analysis">
-            <h3>Analyse</h3>
-            <p>Le plugin permet de visualiser les données hydrologiques, de générer des rapports, et de simuler des scénarios de gestion des risques.</p>
-        </div>
+    <section class="interpretation-block">
+        <h2>À savoir sur le plugin</h2>
+        <p>Ce plugin s'appuie sur un jeu de donnée : un fichier CSV comportant : 1 champ d'identifiant sans format spécifique, 1 champ de date au format date format "yyyy-MM-dd hh:mm:ss", 2 champs de coordonnées au format float. Il peut aussi comprendre un fichier raster au format tif (optionnel).</p>
     </section>
 
-    <section class="project-conclusion">
-        <h2>Conclusion</h2>
-        <p>Ce projet a permis de développer un outil pratique pour les gestionnaires de risques hydrologiques, en intégrant des fonctionnalités avancées dans QGIS.</p>
+    <section class="interpretation-block">
+        <h2>Fonctionnement</h2>
+        <p>Lors de son exécution, le plugin ouvre une fenêtre de paramétrage où l’utilisateur peut sélectionner une couche CSV, définir les champs pertinents (ID, date, coordonnées), choisir une période temporelle et activer ou non un fond de carte raster. Les données sont ensuite interpolées dans le temps selon un intervalle choisi (par exemple toutes les 5 minutes). Une fois préparées, elles sont visualisées dans une fenêtre animée avec Pygame, où l’utilisateur peut démarrer, mettre en pause, avancer ou reculer dans le temps, tout en observant les trajectoires évoluer dynamiquement à l’écran.</p>
+    </section>
+
+    <section class="graph-block">
+        <h2>Structure du code</h2>
+        <img src="images/structure_code.jpg" alt="Structure du code">
+        <p class="caption">Des fonctions complémentaires gèrent la transformation des coordonnées (transform_csv()), l’affichage ou non d’un fond de carte (enable_raster_path()), et le réglage automatique des dates (date_defaut()).</p>
+    </section>
+
+    <section class="interpretation-block">
+        <h2>Technologies utilisées</h2>
+        <p>Le plugin s’appuie sur plusieurs bibliothèques et outils pour fonctionner correctement : PyQGIS (API Python de QGIS) est utilisé pour interagir avec les couches de données (CSV et raster), extraire les champs, lire les entités, détecter les types de données, et effectuer les reprojections nécessaires entre systèmes de coordonnées. Pandas est employé pour charger et manipuler les données tabulaires issues du fichier CSV, ce qui facilite la sélection, le tri, et l’interpolation temporelle des positions. Pygame est utilisé pour l’animation graphique des trajectoires. C’est grâce à cette bibliothèque que la fenêtre d’animation est affichée, avec les contrôles (lecture, pause, avance, retour) et les tracés de trajectoires. Enfin, plusieurs modules personnalisés (comme ft, rd, ec, re, cce, rasc, ecr) sont appelés pour effectuer des tâches spécifiques, comme l’interpolation spatio-temporelle, la gestion des couleurs, l’extraction d’une image raster, ou la conversion de coordonnées.</p>
     </section>
 
     <section style="text-align: center;">
